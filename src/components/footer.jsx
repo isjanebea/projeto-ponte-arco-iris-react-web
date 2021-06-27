@@ -5,8 +5,7 @@ import styled from 'styled-components';
 const FooterComponent= styled.div`
     display: flex;
     width: 100%;
-    height: 40vh;
-    background: rgb(150,255,255);
+    height: 10vh;
     color: white;
 `
 

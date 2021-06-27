@@ -11,8 +11,6 @@ const AuthProvider = ({ children }) => {
         handleLogout,
         auth,
         loading,
-        visibleBanner,
-        setBanner
     } = UseAuth();
 
     return (
@@ -21,10 +19,6 @@ const AuthProvider = ({ children }) => {
                 auth: {
                     isAuth: auth,
                 },
-                components: {
-                    header: visibleBanner,
-                },
-                setBanner,
                 handleLogin,
                 handleLogout
             }}

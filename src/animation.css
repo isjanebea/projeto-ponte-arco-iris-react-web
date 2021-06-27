@@ -1,0 +1,176 @@
+
+
+
+@keyframes arcoIrisBody {
+	0% {
+		background-color: rgba(255, 0, 0, 0.5);
+	}
+	12% {
+		background-color: rgba(192, 109, 0, 0.9);
+	}
+	24% {
+		background-color: rgba(116, 148, 0, 0.5);
+	}
+	36% {
+		background-color: rgba(0, 185, 9, 0.5);
+	}
+	48% {
+		background-color: rgba(0, 185, 160, 0.5);
+	}
+	60% {
+		background-color: rgba(0, 65, 185, 0.5);
+	}
+	72% {
+		background-color: rgba(71, 0, 185, 0.5);
+	}
+	84% {
+		background-color: rgba(185, 0, 176, 0.5);
+	}
+	100% {
+		background-color: rgba(255, 0, 0, 0.5);
+	}
+  }
+
+@keyframes arcoIrisText {
+	0% {
+		background-color: rgba(255, 0, 0, 0.9);
+	}
+	2% {
+		background-color: rgba(255, 145, 0, 0.9);
+	}
+	3% {
+		background-color: rgba(200, 255, 0, 0.9);
+	}
+	4% {
+		background-color: rgba(0, 185, 9, 0.5);
+	}
+	5% {
+		background-color: rgba(0, 185, 160, 0.9);
+	}
+	6% {
+		background-color: rgba(0, 65, 185, 0.5);
+	}
+	7% {
+		background-color: rgba(71, 0, 185, 0.9);
+	}
+	8% {
+		background-color: rgba(185, 0, 176, 0.9);
+	}
+	9% {
+		background-color: rgba(255, 0, 0, 0.5);
+	}
+	10% {
+		background-color: rgb(80,80,80);
+	}
+	99% {
+		background-color: rgb(80,80,80);
+	}
+	100% {
+		background-color: rgb(255, 121, 121);
+	}
+}
+
+@keyframes arcoIrisBorder {
+	0% {
+		border-color: rgba(255, 0, 0, 0.9);
+	}
+	2% {
+		border-color: rgba(255, 145, 0, 0.9);
+	}
+	3% {
+		border-color: rgba(126, 161, 0, 0.9);
+	}
+	4% {
+		border-color: rgba(0, 185, 9, 0.5);
+	}
+	5% {
+		border-color: rgba(0, 185, 160, 0.9);
+	}
+	6% {
+		border-color: rgba(0, 65, 185, 0.5);
+	}
+	7% {
+		border-color: rgba(71, 0, 185, 0.9);
+	}
+	8% {
+		border-color: rgba(185, 0, 176, 0.9);
+	}
+	9% {
+		border-color: rgba(255, 0, 0, 0.5);
+	}
+	10% {
+		border-color: rgba(80,80,80,.2);
+	}
+	99% {
+		border-color: rgba(80,80,80, 0.2);
+	}
+	100% {
+		border-color: rgb(255, 121, 121);
+	}
+}
+
+
+@keyframes moveLeft {
+	from  {
+		transform: translate(-400px, 0); 
+
+	}
+	to {
+		transform: translate(-0px, 0); 
+	}
+}
+
+@keyframes moveRight {
+	from  {
+		transform: translate(400px, 0); 
+
+	}
+	to {
+		transform: translate(-0px, 0); 
+	}
+}
+  #root {
+
+	  box-shadow: 2px 2px 3px rgba(0,0,0,.2);
+      height: 100vh;
+  }
+ body {
+	animation-duration: 20s;
+	animation-name: arcoIrisBody;
+	animation-iteration-count: infinite;
+	background-size: 300%;
+ }
+  .border-arco-iris {
+	animation-duration: 20s;
+	animation-name: arcoIrisBorder;
+	animation-iteration-count: infinite;
+  }
+  .gradient {
+	  animation-duration: 20s;
+	  animation-name: arcoIrisText;
+	  animation-iteration-count: infinite;
+	  color: black;
+	  background-clip: text;
+	  -webkit-background-clip: text;
+	
+	  /* Adicionado: */
+	  -webkit-text-fill-color: transparent;
+	}
+	.animLeft {
+		animation-duration: 1.5s;
+		animation-name: moveLeft;
+		animation-iteration-count: 1;
+	}
+	.animRight {
+		animation-duration: 1.5s;
+		animation-name: moveRight;
+		animation-iteration-count: 1;
+	}
+
+@media screen and (max-width: 800px) {
+	#root {
+		margin-top: 0px;
+	}
+}
+
+

@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Router, Switch } from 'react-router-dom';
 
-import { AuthProvider, Context } from '../context';
+import { AuthProvider } from '../context';
 import { PublicRouter, PrivateRouter } from './custom';
 import history from './history'
 
@@ -16,15 +16,21 @@ import Main from '../components/page';
 /**** PAGES */
 import Home from '../pages/home';
 import NotFound from '../pages/notFound';
+import AcolhidaId from '../pages/host/id';
 import Login from '../pages/login';
-import Pages from '../pages/pages';
+import Host from '../pages/host'
+import Api from '../pages/api/api.jsx'
+import Cadastro from '../pages/cadastro'
 
 
 const Routes = () => (
     <Switch>
         <PublicRouter exact path="/" component={Home} />
         <PublicRouter exact path="/login" component={Login} />
-        <PublicRouter path="/pages/:id" component={Pages}  />
+        <PublicRouter exact path="/documentacao" component={Api} />
+        <PublicRouter exact path="/cadastro" component={Cadastro} />
+        <PublicRouter exact path="/acolhida" component={Host} />
+        <PublicRouter exact path="/acolhida/:id" component={AcolhidaId} />
         <PublicRouter path="*" component={NotFound} />
     </Switch>
 )
@@ -36,10 +42,8 @@ const Routers = () => {
         <AuthProvider>
             <Router history={history}>
                 <Header />
-                <Main>
                     <Routes />
-                </Main>
-                <Footer />
+                {/* <Footer /> */}
             </Router>
         </AuthProvider>
     )

@@ -1,8 +1,7 @@
 
 import styled from 'styled-components';
-import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-
+import LockIcon from '@material-ui/icons/Lock';
 
 
 const Input = styled.input`
@@ -26,6 +25,7 @@ const Card = styled.div`
 
 const FormGroup = styled.div`
     display: flex;
+    margin-bottom: 1vh;
 
 `
 
@@ -34,12 +34,11 @@ const Button = styled.button`
     background: green;
     color: white;
     height: 42px;
-    margin-top: 8px;
-    margin-left: -50px;
     border-radius: 5px;
     border: 0px black solid;
-    width: 50px;
     cursor: pointer;
+    padding-left: 20px;
+    padding-right: 20px;
     &:hover {
         color: white;
         background: rgb(0,100,0);
@@ -53,11 +52,16 @@ const UserIcon = styled(AccountCircleIcon)`
   z-index: 5;
 `;
 
+const LockIconUi = styled(LockIcon)`
+  color: silver;
+  margin-top: 16px;
+  z-index: 5;
+`;
+
 const FormItem = ({ type, placeholder, handle, Icon }) => (
     <FormGroup>
         <Icon />
-        <Input type={type} placeholder={placeholder} />
-        <Button onClick={handle}><ArrowForwardIcon style={{ fontSize: '30px' }} /></Button>
+        <Input type={type} placeholder={placeholder} onChange={handle} />
     </FormGroup>
 )
 
@@ -66,5 +70,7 @@ const FormItem = ({ type, placeholder, handle, Icon }) => (
 export {
     FormItem,
     UserIcon,
-    Card
+    Card,
+    LockIconUi,
+    Button
 }

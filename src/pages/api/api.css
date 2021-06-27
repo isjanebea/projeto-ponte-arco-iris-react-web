@@ -1,0 +1,80 @@
+.readme h1 {
+    font-size: 2em;
+}
+
+.readme h2 {
+    font-size: 1.3em;
+}
+
+.readme h1, .readme h2 {
+    border-bottom: 1px rgba(0, 0, 0, 0.3) solid;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.readme {
+    font-family: Roboto;
+    background: rgba(245, 245, 245, 0.9);
+    padding: 10px;
+    color: rgb(80, 80, 80);
+    margin: 5px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+    border: 1px rgba(0, 0, 0, 0.2) solid;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left !important;
+}
+
+.readme strong {
+    font-weight: bold;
+}
+
+.readme em {
+    font-style: italic;
+}
+
+.readme hr {
+    border: 1px rgba(0, 0, 0, 0.1) solid;
+}
+
+
+
+.readme code {
+    color: rgb(49, 49, 49);
+}
+
+.readme pre {
+    padding: 10px;
+    background: rgba(204, 204, 204, 0.6);
+    overflow: scroll;
+    
+}
+
+.readme th, td {
+    text-align: left;
+    padding: 10px;
+    border: 1px rgba(0, 0, 0, 0.2) solid;
+}
+
+.readme p, .readme code {
+    line-height: 1.3em;
+}
+
+.readme pre, .readme table, .readme {
+    border-radius: 5px;
+}
+
+@media (max-width: 767px) {
+   .readme table {
+       transform: scale(0.7) !important;
+       margin-left: -50px !important;
+   }
+}
+
+@media (max-width: 375px) {
+    .readme table {
+        transform: scale(0.5) !important;
+        margin-left: -100px !important;
+    }
+ }

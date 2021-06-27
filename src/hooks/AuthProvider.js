@@ -1,19 +1,18 @@
 
 import React, { createContext, useEffect, useState } from 'react';
 import history from '../routes/history';
-import axios from '../connection/axios';
+import server from '../services/server';
 
 
 export default function useAuth() {
-    const [visibleBanner, setBanner] = useState(false)
     const [auth, setAuth] = useState(false);
     const [loading, setLoading] = useState(true);
 
     const handleLogin = async () => {
         try {
-            const { data: { token, user: { user, email } } } = await axios.post("auth/")
+            const { data: { token, user: { user, email } } } = await server.post("auth/")
             localStorage.setItem('token', JSON.stringify(token))
-            axios.defaults.headers.authorization = `Bearer ${token}`;
+            server.defaults.headers.authorization = `Bearer ${token}`;
             setAuth(true)
             history.push("/")
 
@@ -25,7 +24,7 @@ export default function useAuth() {
 
     const handleLogout = () => {
         localStorage.removeItem("token")
-        axios.defaults.headers.authorization = undefined;
+        server.defaults.headers.authorization = undefined;
         setAuth(false)
         history.push("/login")
     }
@@ -34,7 +33,7 @@ export default function useAuth() {
         const token = localStorage.getItem('token');
 
         if (token) {
-            axios.defaults.authorization = `Bearer ${JSON.parse(token)}`
+            server.defaults.authorization = `Bearer ${JSON.parse(token)}`
             setAuth(true)
         }
         setLoading(false)
@@ -44,7 +43,5 @@ export default function useAuth() {
         handleLogout,
         auth,
         loading,
-        visibleBanner,
-        setBanner
     }
 }
