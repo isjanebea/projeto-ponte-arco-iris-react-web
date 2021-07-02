@@ -85,20 +85,14 @@ const CardHost = ({ host, _id, uf, city }) => (
                 </Typography>
 
             </div>
-<<<<<<< HEAD
-            <ButtonBar>
-                <Button variant="outlined" color="secondary" onClick={() => history.push('/acolhida/' + _id)}>Mais informações</Button>
-                <div className="label-location" style={{ display: "flex", alignItems: "center" }}>
-=======
             <div style={{ display: "flex", justifyContent: "space-around", alignItems: "center", flexWrap: "wrap-reverse", lineHeight: "3em" }}>
                 <div>
                     <Button variant="outlined" color="secondary" href={'/acolhida/' + _id}>Mais informações</Button>
                 </div>
                 <div style={{ display: "flex", alignItems: "center" }}>
->>>>>>> bfd6c90b309ab0b4642003e48668a05e986e8150
                     <LocationOnIcon style={{ fontSize: '15px' }} /><Typography variant="body1" style={{ fontSize: '15px' }}>{city} - {uf}</Typography>
                 </div>
-            </ButtonBar>
+            </div>
         </Card>
     </div>
 )
@@ -122,13 +116,8 @@ const Host = () => {
     return loading ? (
         <Loading />
     ) : (
-<<<<<<< HEAD
-        <Container>
-            <div style={{ height: '100vh', width: '100%' }}>
-=======
         <div style={{ background: "rgba(255, 255, 255, 0.3)"}}>
             <div style={{ minHeight: '100vh', width: '100%'}}>
->>>>>>> bfd6c90b309ab0b4642003e48668a05e986e8150
                 <Filter host={hostList} />
                 <List>
                     <ListGroup>
@@ -142,11 +131,7 @@ const Host = () => {
                     </ListGroup>
                 </List>
             </div>
-<<<<<<< HEAD
-        </Container>
-=======
         </div>
->>>>>>> bfd6c90b309ab0b4642003e48668a05e986e8150
     )
 
 }

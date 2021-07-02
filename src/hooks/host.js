@@ -24,7 +24,6 @@ const Host = (props) => {
     const query = useQuery();
     const { hostSeach } = useContext(Context)
     const filter = queryUrl(query, "estado")
-    
     useEffect(() => {
         setStatus({ loading: true})
         let queryUrl = "/localizacao?" + Object.keys(filter).map(key => key + "=" + filter[key].replace(/\s+/g, "%20")) 
