@@ -7,13 +7,14 @@ import LocationOnIcon from '@material-ui/icons/LocationOn';
 import Error from '../../components/error';
 import Loading from '../../components/loading';
 import FilterOptios from '../../components/option';
-
+import history from '../../routes/history'
 
 
 const ListGroup = styled.ul`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
 `
 
 const List = styled.div`
@@ -25,13 +26,34 @@ const ListItem = styled.li`
 `
 // colocar um icone de mapa e o endereco
 const Card = styled.section`
-    width : 350px;
+    max-width : 350px;
+    width: 100%;
     border: 1px rgba(30,30,30,0.2) solid;
     border-radius: 5px 5px 5px 5px;
     padding: 10px;
     color: rgb(60,0,30);
     background: linear-gradient(to left, rgb(255,240,255), rgba(255,255,255,0.8));
 
+    @media(max-width: 425px) {
+        flex-direction: column;
+        position: relative;
+        width: 375px;
+      }
+
+`
+
+const ButtonBar = styled.div`
+      display: flex;
+      justify-content: space-between;
+      aligm-items: center;
+      @media(max-width: 415px) {
+            flex-direction: column-reverse;
+            .label-location {
+                margin-bottom: 10px;
+                justify-content: center;
+                
+            }
+      }
 `
 
 const CardHeader = styled.div`
@@ -46,7 +68,9 @@ const FilterComponent = styled.div`
     border: 1px rgba(0,0,0,0.1) solid;
     padding: 10px;
 `
-
+const Container = styled.div`
+      background: linear-gradient(to bottom, rgba(255,255,255, 0.5), rgba(255,255,255,0));
+`
 const CardHost = ({ host, _id, uf, city }) => (
     <div>
         <Card className="descricao">
@@ -62,14 +86,12 @@ const CardHost = ({ host, _id, uf, city }) => (
                 </Typography>
 
             </div>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <div>
-                    <Button variant="outlined" color="secondary" href={'/acolhida/' + _id}>Mais informações</Button>
-                </div>
-                <div style={{ display: "flex", alignItems: "center" }}>
+            <ButtonBar>
+                <Button variant="outlined" color="secondary" onClick={() => history.push('/acolhida/' + _id)}>Mais informações</Button>
+                <div className="label-location" style={{ display: "flex", alignItems: "center" }}>
                     <LocationOnIcon style={{ fontSize: '15px' }} /><Typography variant="body1" style={{ fontSize: '15px' }}>{city} - {uf}</Typography>
                 </div>
-            </div>
+            </ButtonBar>
         </Card>
     </div>
 )
@@ -93,20 +115,22 @@ const Host = () => {
     return loading ? (
         <Loading />
     ) : (
-        <div style={{ height: '100vh', width: '100%', background: 'rgba(255, 255, 255, 0.3)'}}>
-            <Filter host={hostList} />
-            <List>
-                <ListGroup>
-                    {hostList.map((host, index) => {
-                        return (
-                            <ListItem key={'host' + index}>
-                                <CardHost {...host} />
-                            </ListItem>
-                        )
-                    })}
-                </ListGroup>
-            </List>
-        </div>
+        <Container>
+            <div style={{ height: '100vh', width: '100%' }}>
+                <Filter host={hostList} />
+                <List>
+                    <ListGroup>
+                        {hostList.map((host, index) => {
+                            return (
+                                <ListItem key={'host' + index}>
+                                    <CardHost {...host} />
+                                </ListItem>
+                            )
+                        })}
+                    </ListGroup>
+                </List>
+            </div>
+        </Container>
     )
 
 }

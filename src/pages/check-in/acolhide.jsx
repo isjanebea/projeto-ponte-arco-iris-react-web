@@ -1,13 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import server from '../../services/server'
+import React from 'react';
 import Loading from '../../components/loading';
 import Error from '../../components/error';
 import EstadosHooks from '../../hooks/estados'
 import styled from 'styled-components';
-import { Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
-import bgArcoIris from '../../assets/img/arco-iris.png';
-import history from '../../routes/history'
 import Options from '../../components/option'
 const Main = styled.main`
     width: 100%;
@@ -34,10 +29,28 @@ const Header = styled.section`
     align-items: center;
     height: 100vh;
     max-width: 800px;
-   
-
-
+    @media (max-width: 415px) {
+        padding: 5px;
+    }
 `
+
+const Container = styled.section`
+     background: rgba(255,255,255,0.5);
+     display: flex; 
+    border-radius: 5px;
+    align-items: center;
+    padding: 100px;
+    @media (max-width: 425px) {
+        padding: 100px 0px 100px 5px;
+        justify-content: flex-end;
+        margin: 10px;
+    }
+    @media (max-width: 768px) {
+        padding: 100px 20px 100px 50px;
+        justify-content: flex-end;
+        max-width: 600px;
+    }
+   `
 const Img = styled.img`
     border: 1px rgba(255,255,255,1) solid;
     border-radius: 5px;
@@ -61,31 +74,26 @@ margin: 10px;
 }
 `
 
-const useStyles = makeStyles({
-    titulo: {
-        fontSize: '1rem',
-        fontHeight: '900',
-        lineHeight: '1.3',
-        color: 'white',
-    },
-    subTitulo: {
-        fontSize: '1.3rem',
-        fontHeight: 'bold',
-        lineHeight: '1.3',
+const Titulo = styled.h3`
+    font-family: Roboto;
+    color: rgb(50,0,50);
+    font-size: 3em;
+    @media(max-width: 425px) {
+        font-size: 1.6em;
     }
-});
+`
+
 
 
 
 const CheckInComponent = (props) => {
-    const classes = useStyles();
     return (
         <div style={{ borderTop: "1px rgba(0,0,0,0.1) solid" }}>
             <Main>
                 <Header>
-                        <div style={{ padding: '100px', background: 'rgba(255,255,255,0.5)', display: 'flex', borderRadius: "5px"}}>
-                        <Typography variant="h3" style={{ color: 'rgb(50,0,50)' }}>Escolha seu Estado</Typography><Options color={'white'} bar={false} />
-                        </div>
+                    <Container>
+                        <Titulo>Escolha seu Estado</Titulo><Options bar={false} />
+                    </Container>
                 </Header>
             </Main>
         </div>

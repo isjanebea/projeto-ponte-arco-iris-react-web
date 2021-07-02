@@ -22,7 +22,7 @@ import Host from '../pages/host'
 import Api from '../pages/api/api.jsx'
 import Cadastro from '../pages/cadastro'
 import Acolhide from '../pages/check-in/acolhide'
-
+import About from '../pages/about';
 
 const Routes = () => (
     <Switch>
@@ -33,6 +33,7 @@ const Routes = () => (
         <PublicRouter exact path="/acolhida" component={Host} />
         <PublicRouter exact path="/acolhida/:id" component={AcolhidaId} />
         <PublicRouter exact path="/acolhide" component={Acolhide} />
+        <PublicRouter exact path="/sobre" component={About} />
         <PublicRouter path="*" component={NotFound} />
     </Switch>
 )

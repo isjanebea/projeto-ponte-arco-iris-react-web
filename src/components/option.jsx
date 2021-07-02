@@ -50,7 +50,7 @@ export default function ControlledOpenSelect(props) {
 
     const handleFilter = () => {
         let filter = { estado };
-        if (filter == null) return null;
+        if (filter == null || filter.estado=="") return null;
         let urlseach = "/acolhida?" + Object.keys(filter).map(key => key + "=" + filter[key].replace(/\s+/g, "%20")).join('');
         setHostSeach(urlseach);
         history.push(urlseach)

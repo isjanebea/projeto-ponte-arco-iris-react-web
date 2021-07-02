@@ -14,6 +14,7 @@ const Main = styled.main`
     background: url(${bgArcoIris}) rgba(0,0,0,0.8) no-repeat left top;
     background-size: cover;
     margin-top: -70px;
+    padding-bottom: 70px;
    
 `
 // div>p>h
@@ -27,9 +28,7 @@ const Header = styled.section`
     width: 100%;
     align-items: center;
     height: 100vh;
-    padding: 2vh;
     max-width: 800px;
-
 
 `
 const Img = styled.img`
@@ -46,7 +45,21 @@ justify-content: center;
 align-items: center;
 transition: 1s;
 cursor: pointer;
-
+@media(max-width: 325px) {
+    width: 20vh;
+    height: 35vh;
+    text-align: center;
+}
+@media(max-width: 375px) {
+    width: 25vh;
+    height: 40vh;
+    text-align: center;
+}
+@media(max-width: 425px) {
+    width: 45%;
+    height: 45vh;
+    text-align: center;
+}
 &:hover{
     background: rgba(255,255,255,0.1);
     box-shadow: 1px 1px 1px rgba(255,255,255,0.3);
@@ -79,7 +92,7 @@ const Home = props => {
         <Main>
             <Header>
                 <Card onClick={() => history.push("/acolhide")}>
-                    <Typography variant="h2"  className={classes.titulo}>Precisa de Ajuda</Typography>
+                    <Typography variant="h2" className={classes.titulo}>Precisa de Ajuda</Typography>
 
                 </Card>
                 <Card onClick={handleClick}>
