@@ -25,7 +25,7 @@ const ListItem = styled.li`
 `
 // colocar um icone de mapa e o endereco
 const Card = styled.section`
-    width : 350px;
+    max-width : 350px;
     border: 1px rgba(30,30,30,0.2) solid;
     border-radius: 5px 5px 5px 5px;
     padding: 10px;
@@ -62,7 +62,7 @@ const CardHost = ({ host, _id, uf, city }) => (
                 </Typography>
 
             </div>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <div style={{ display: "flex", justifyContent: "space-around", alignItems: "center", flexWrap: "wrap-reverse", lineHeight: "3em" }}>
                 <div>
                     <Button variant="outlined" color="secondary" href={'/acolhida/' + _id}>Mais informações</Button>
                 </div>
@@ -93,19 +93,21 @@ const Host = () => {
     return loading ? (
         <Loading />
     ) : (
-        <div style={{ height: '100vh', width: '100%', background: 'rgba(255, 255, 255, 0.3)'}}>
-            <Filter host={hostList} />
-            <List>
-                <ListGroup>
-                    {hostList.map((host, index) => {
-                        return (
-                            <ListItem key={'host' + index}>
-                                <CardHost {...host} />
-                            </ListItem>
-                        )
-                    })}
-                </ListGroup>
-            </List>
+        <div style={{ background: "rgba(255, 255, 255, 0.3)"}}>
+            <div style={{ minHeight: '100vh', width: '100%'}}>
+                <Filter host={hostList} />
+                <List>
+                    <ListGroup>
+                        {hostList.map((host, index) => {
+                            return (
+                                <ListItem key={'host' + index}>
+                                    <CardHost {...host} />
+                                </ListItem>
+                            )
+                        })}
+                    </ListGroup>
+                </List>
+            </div>
         </div>
     )
 
