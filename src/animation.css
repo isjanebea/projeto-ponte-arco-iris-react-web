@@ -165,10 +165,6 @@
 		animation-iteration-count: 1;
 	}
 
-@media screen and (max-width: 800px) {
-	#root {
-		margin-top: 0px;
-	}
-}
+
 
 
