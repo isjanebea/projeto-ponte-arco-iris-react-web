@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { Button, Typography } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import Iframe from 'react-iframe'
 import styled, { createGlobalStyle } from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';

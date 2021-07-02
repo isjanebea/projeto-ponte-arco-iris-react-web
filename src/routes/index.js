@@ -21,6 +21,7 @@ import Login from '../pages/login';
 import Host from '../pages/host'
 import Api from '../pages/api/api.jsx'
 import Cadastro from '../pages/cadastro'
+import Acolhide from '../pages/check-in/acolhide'
 
 
 const Routes = () => (
@@ -31,6 +32,7 @@ const Routes = () => (
         <PublicRouter exact path="/cadastro" component={Cadastro} />
         <PublicRouter exact path="/acolhida" component={Host} />
         <PublicRouter exact path="/acolhida/:id" component={AcolhidaId} />
+        <PublicRouter exact path="/acolhide" component={Acolhide} />
         <PublicRouter path="*" component={NotFound} />
     </Switch>
 )

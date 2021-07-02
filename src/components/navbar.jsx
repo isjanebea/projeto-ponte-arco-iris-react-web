@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Button, makeStyles} from '@material-ui/core';
+import { Button, makeStyles } from '@material-ui/core';
 import logo from '../assets/img/logo.png';
 import TemporaryDrawer from './drawer'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-
+import history from '../routes/history'
 
 const Nav = styled.nav`
     color:  rgb(255,255,255);
@@ -20,16 +20,17 @@ const Nav = styled.nav`
 
 
 
-    const useStyles = makeStyles({
-        button: {
-            color : 'white',
-            textShadow: '1px 1px 1px rgba(0,0,0,.3)'
-        }
-      });
+const useStyles = makeStyles({
+    button: {
+        color: 'white',
+        textShadow: '1px 1px 1px rgba(0,0,0,.3)'
+    }
+});
+
 
 
 const MobileMenu = (props) => {
-    
+
     return (
         <Nav style={{ background: props.menu ? "rgba(255,0,255, 0)" : 'rgba(255,255,255,0)' }}>
             <div>
@@ -40,8 +41,8 @@ const MobileMenu = (props) => {
     )
 }
 
-const OtherMenu = ({ classes : style }) => (
-    
+const OtherMenu = ({ classes: style }) => (
+
     <div>
         <Button className={style.button} href="/login"><AccountCircleIcon /></Button>
     </div>
@@ -50,23 +51,25 @@ const OtherMenu = ({ classes : style }) => (
 
 const DestopMenu = (props) => {
     const style = useStyles()
- return (  
-    <Nav>
-        <div>
-            <Button className={style.button} href="/">Home</Button>
-            <Button className={style.button} href="/acolhida">Lares</Button>
-            <Button className={style.button} href="/documentacao">Documentação</Button>
-            <Button className={style.button} href="/sobre">Sobre</Button>
-        </div>
-        <OtherMenu classes={style} />
-    </Nav>
- ) 
+
+
+    return (
+        <Nav>
+            <div style={{ display: 'flex', itensAligm: "center" }}>
+                <img src={logo} style={{ padding: '5px', height: '22px' }} />
+                <Button className={style.button} onClick={() => history.push("/")}>Home</Button>
+                <Button className={style.button} onClick={() => history.push("/acolhida")}>Lares</Button>
+                <Button className={style.button} onClick={() => history.push("/sobre")}>Sobre</Button>
+            </div>
+            <OtherMenu classes={style} />
+        </Nav>
+    )
 }
 
 const NavBar = ({ ...rest }) => (
     <div>
         {/* <MobileMenu className="tela-mobile" {...rest} /> */}
-        <img src={logo} style={{ height: '30px', marginBottom: '-3px', marginLeft: '10px' }} />
+
         <DestopMenu className="tela-desktop" {...rest} />
     </div>
 )

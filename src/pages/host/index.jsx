@@ -1,13 +1,15 @@
 
-import axios from '../../services/server';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Button, Typography } from '@material-ui/core';
 import HostHooks from '../../hooks/host'
-import ShareIcon from '@material-ui/icons/Share';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import Error from '../../components/error';
 import Loading from '../../components/loading';
+import FilterOptios from '../../components/option';
+
+
+
 const ListGroup = styled.ul`
     display: flex;
     flex-wrap: wrap;
@@ -24,12 +26,11 @@ const ListItem = styled.li`
 // colocar um icone de mapa e o endereco
 const Card = styled.section`
     width : 350px;
-    border: 1px rgba(127,127,127,0.2) solid;
-    box-shadow: 1px 1px 1px rgba(227,227,227, 0.1);
+    border: 1px rgba(30,30,30,0.2) solid;
     border-radius: 5px 5px 5px 5px;
-    padding: 5px;
-    color: rgb(70,70,60);
-    background: linear-gradient(45deg, rgba(255,250,155,0.5) 30%, rgba(255,255,255,0.5) 90%);
+    padding: 10px;
+    color: rgb(60,0,30);
+    background: linear-gradient(to left, rgb(255,240,255), rgba(255,255,255,0.8));
 
 `
 
@@ -37,11 +38,16 @@ const CardHeader = styled.div`
     padding : 10px;
     border-bottom: 1px rgba(127,127,127,0.5) solid;
 `
-const Link = styled.a`
-    cursor: pointer;
+
+const FilterComponent = styled.div`
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 1px rgba(0,0,0,0.1) solid;
+    padding: 10px;
 `
 
-const CardHost = ({host, _id, uf, city}) => (
+const CardHost = ({ host, _id, uf, city }) => (
     <div>
         <Card className="descricao">
             <CardHeader>
@@ -50,23 +56,31 @@ const CardHost = ({host, _id, uf, city}) => (
             <div style={{ height: '250px' }}>
                 <Typography variant="body2">
                     {host.description
-                    .split(" ")
-                    .filter((desc, index) => index >= 0 && index <= 35)
-                    .join(" ") + "..."}
-                    </Typography>
+                        .split(" ")
+                        .filter((desc, index) => index >= 0 && index <= 35)
+                        .join(" ") + "..."}
+                </Typography>
 
             </div>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <div>
-                    <Button href={'/acolhida/'+_id}>Mais informações</Button>
+                    <Button variant="outlined" color="secondary" href={'/acolhida/' + _id}>Mais informações</Button>
                 </div>
                 <div style={{ display: "flex", alignItems: "center" }}>
-                    <LocationOnIcon style={{ fontSize: '15px' }} /><label style={{ fontSize: '15px' }}>{city} - {uf}</label>
+                    <LocationOnIcon style={{ fontSize: '15px' }} /><Typography variant="body1" style={{ fontSize: '15px' }}>{city} - {uf}</Typography>
                 </div>
             </div>
         </Card>
     </div>
 )
+
+const Filter = (props) => {
+    return (
+        <FilterComponent>
+            <FilterOptios options={props.host} />
+        </FilterComponent>
+    )
+}
 
 const Host = () => {
     const { loading, hostList, error } = HostHooks();
@@ -74,12 +88,13 @@ const Host = () => {
     if (error) {
         return <Error error={error} />
     }
-    
+
 
     return loading ? (
         <Loading />
     ) : (
-        <div style={{ marginLeft: "14px"}}>
+        <div style={{ height: '100vh', width: '100%', background: 'rgba(255, 255, 255, 0.3)'}}>
+            <Filter host={hostList} />
             <List>
                 <ListGroup>
                     {hostList.map((host, index) => {

@@ -7,7 +7,7 @@ import server from '../services/server';
 export default function useAuth() {
     const [auth, setAuth] = useState(false);
     const [loading, setLoading] = useState(true);
-
+    const [hostSeach, setHostSeach] = useState('');
     const handleLogin = async () => {
         try {
             const { data: { token, user: { user, email } } } = await server.post("auth/")
@@ -19,7 +19,6 @@ export default function useAuth() {
         } catch (error) {
             console.log('falha ao obter dados do servidor')
         }
-
     }
 
     const handleLogout = () => {
@@ -43,5 +42,7 @@ export default function useAuth() {
         handleLogout,
         auth,
         loading,
+        setHostSeach,
+        hostSeach
     }
 }

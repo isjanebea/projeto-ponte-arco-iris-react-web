@@ -11,6 +11,8 @@ const AuthProvider = ({ children }) => {
         handleLogout,
         auth,
         loading,
+        hostSeach,
+        setHostSeach
     } = UseAuth();
 
     return (
@@ -20,7 +22,9 @@ const AuthProvider = ({ children }) => {
                     isAuth: auth,
                 },
                 handleLogin,
-                handleLogout
+                handleLogout,
+                setHostSeach,
+                hostSeach
             }}
         >
             {children}

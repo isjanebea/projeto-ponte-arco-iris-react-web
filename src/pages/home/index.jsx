@@ -28,7 +28,6 @@ const Header = styled.section`
     align-items: center;
     height: 100vh;
     padding: 2vh;
-    cursor: pointer;
     max-width: 800px;
 
 
@@ -46,6 +45,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 transition: 1s;
+cursor: pointer;
 
 &:hover{
     background: rgba(255,255,255,0.1);
@@ -78,7 +78,7 @@ const Home = props => {
     return (
         <Main>
             <Header>
-                <Card onClick={handleClick}>
+                <Card onClick={() => history.push("/acolhide")}>
                     <Typography variant="h2"  className={classes.titulo}>Precisa de Ajuda</Typography>
 
                 </Card>
@@ -94,3 +94,7 @@ const Home = props => {
 
 
 export default Home;
+
+export {
+    Card
+}
