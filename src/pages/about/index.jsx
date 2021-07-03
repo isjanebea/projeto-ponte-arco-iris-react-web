@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styled from 'styled-components'
 import { Button, Typography } from '@material-ui/core';
 import ListIcon from '@material-ui/icons/List';
 import { makeStyles } from '@material-ui/core/styles';
 import AnchorLink from "react-anchor-link-smooth-scroll";
-
+import { Context } from '../../context' 
 
 
 
@@ -12,9 +12,9 @@ import API from '../api/api';
 import HOME from '../home'
 
 const Container = styled.div`
+    margin-top: 30px;
     display: grid;
-    grid-template-columns: 1fr 7fr;
-    border-top: 1px rgba(0,0,0,0.1) solid;
+    grid-template-columns: 200px 1fr;
     padding-top: 5px;
     @media (max-width: 425px) {
         display: flex;
@@ -23,12 +23,12 @@ const Container = styled.div`
     }
 
     @media (max-width: 767px) {
-        grid-template-columns: 1fr 4fr;
+        grid-template-columns: 200px 1fr;
         
     }
 
     @media (max-width: 1024px) {
-        grid-template-columns: 1fr 5fr;
+        grid-template-columns: 200px 1fr;
         
     }
     .pages {
@@ -39,11 +39,14 @@ const Container = styled.div`
 
 const SideMenu = styled.div`
     border-right: 1px rgba(0,0,0,0.1)  solid;
-    background: rgba(255,255,255,0.7);
-    height: 100vh;
+
+    
 
     ul {
         position: fixed;
+        background: rgba(255,255,255,0.7);
+        height: 100vh;
+        padding: 10px 30px 10px 20px;
     }
     @media (max-width: 425px) {
         height: 100%;
@@ -124,6 +127,7 @@ const ApiDocs = () => {
         <PageContainer id="api-docs">
             <Titulo>Documentação da API</Titulo>
             <P>Pagina em construção</P>
+            <API />
         </PageContainer>
     )
 }
@@ -140,6 +144,12 @@ const GitHub = () => {
 
 // a
 const About = () => {
+
+ const { setMenu, menu } = useContext(Context);
+ 
+ if (menu==false) {
+     setMenu(true)
+ }
     return (
         <Container>
             <SideMenu>

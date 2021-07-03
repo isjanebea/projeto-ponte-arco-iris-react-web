@@ -8,6 +8,9 @@ export default function useAuth() {
     const [auth, setAuth] = useState(false);
     const [loading, setLoading] = useState(true);
     const [hostSeach, setHostSeach] = useState('');
+    const [menu, setMenu] = useState(false);
+
+    
     const handleLogin = async () => {
         try {
             const { data: { token, user: { user, email } } } = await server.post("auth/")
@@ -43,6 +46,8 @@ export default function useAuth() {
         auth,
         loading,
         setHostSeach,
-        hostSeach
+        hostSeach,
+        menu,
+         setMenu
     }
 }

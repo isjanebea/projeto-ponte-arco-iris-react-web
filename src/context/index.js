@@ -12,7 +12,9 @@ const AuthProvider = ({ children }) => {
         auth,
         loading,
         hostSeach,
-        setHostSeach
+        setHostSeach,
+        menu, 
+        setMenu
     } = UseAuth();
 
     return (
@@ -24,7 +26,9 @@ const AuthProvider = ({ children }) => {
                 handleLogin,
                 handleLogout,
                 setHostSeach,
-                hostSeach
+                hostSeach,
+                menu, 
+                setMenu
             }}
         >
             {children}
