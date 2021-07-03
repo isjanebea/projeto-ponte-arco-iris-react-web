@@ -50,7 +50,7 @@ const Container = styled.section`
         justify-content: flex-end;
         max-width: 600px;
     }
-   `
+   ` 
 const Img = styled.img`
     border: 1px rgba(255,255,255,1) solid;
     border-radius: 5px;
