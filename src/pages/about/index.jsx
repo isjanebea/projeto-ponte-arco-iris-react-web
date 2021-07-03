@@ -3,6 +3,9 @@ import styled from 'styled-components'
 import { Button, Typography } from '@material-ui/core';
 import ListIcon from '@material-ui/icons/List';
 import { makeStyles } from '@material-ui/core/styles';
+import AnchorLink from "react-anchor-link-smooth-scroll";
+
+
 
 
 import API from '../api/api';
@@ -28,6 +31,9 @@ const Container = styled.div`
         grid-template-columns: 1fr 5fr;
         
     }
+    .pages {
+        
+    }
     
 `
 
@@ -35,6 +41,10 @@ const SideMenu = styled.div`
     border-right: 1px rgba(0,0,0,0.1)  solid;
     background: rgba(255,255,255,0.7);
     height: 100vh;
+
+    ul {
+        position: fixed;
+    }
     @media (max-width: 425px) {
         height: 100%;
         margin-bottom: 5px;
@@ -61,6 +71,8 @@ const P = styled.p`
     font-size: 1em;
     line-height: 1em;
 `
+
+
 const useStyles = makeStyles({
     button: {
         color: 'rgb(60,30,60)',
@@ -70,55 +82,57 @@ const useStyles = makeStyles({
 const ListItem = (props) => {
     const styles = useStyles();
     const handleClick = (event) => {
-        window.location.href = props.to;
+        
     }
     return (
         <li>
-            <Button className={styles.button} startIcon={<ListIcon />} onClick={handleClick}>{props.text}</Button>
+            <AnchorLink href={props.to}>
+                <Button className={styles.button} startIcon={<ListIcon />} onClick={handleClick}>{props.text}</Button>
+                </AnchorLink>
         </li>
     )
 }
 
 const Contato = () => {
     return (
-        <PageContainer>
-            <Titulo variant="h6">Contato</Titulo>
-            <P variant="body2">Pagina em Construcao</P>
+        <PageContainer id="contato">
+            <Titulo>Contato</Titulo>
+            <P>Pagina em Construcao</P>
         </PageContainer>
     )
 }
 const TermosDeUso = () => {
     return (
-        <PageContainer>
-            <Titulo variant="h6">Termos de Uso</Titulo>
-            <P variant="body2">Pagina em construção</P>
+        <PageContainer id="termos">
+            <Titulo>Termos de Uso</Titulo>
+            <P>Pagina em construção</P>
         </PageContainer>
     )
 }
 
 const Sobre = () => {
     return (
-        <PageContainer>
-            <Titulo variant="h6">Ponte Arco Iris</Titulo>
-            <P variant="body2">Pagina em construção</P>
+        <PageContainer id="descricao">
+            <Titulo>Ponte Arco Iris</Titulo>
+            <P>Pagina em construção</P>
         </PageContainer>
     )
 }
 
 const ApiDocs = () => {
     return (
-        <PageContainer>
-            <Titulo variant="h6">Documentação da API</Titulo>
-            <P variant="body2">Pagina em construção</P>
+        <PageContainer id="api-docs">
+            <Titulo>Documentação da API</Titulo>
+            <P>Pagina em construção</P>
         </PageContainer>
     )
 }
 
 const GitHub = () => {
     return (
-        <PageContainer>
-            <Titulo variant="h6">Desenvolvedore? Colabore!</Titulo>
-            <P variant="body2">Pagina em construção</P>
+        <PageContainer id="github">
+            <Titulo>Desenvolvedore? Colabore!</Titulo>
+            <P>Pagina em construção</P>
         </PageContainer>
     )
 }
@@ -130,7 +144,7 @@ const About = () => {
         <Container>
             <SideMenu>
                 <ul>
-                    <ListItem text="Sobre" to="#sobre"/>
+                    <ListItem text="Sobre" to="#descricao"/>
                     <ListItem text="API DOCS" to="#api-docs" />
                     <ListItem text="Contato" to="#contato" />
                     <ListItem text="GitHub" to="#github" />
@@ -138,11 +152,11 @@ const About = () => {
                 </ul>
             </SideMenu>
             <div className="pages">
-                <Sobre id="sobre" />
-                <ApiDocs id="api-docs" />
-                <Contato id="contato" />
-                <GitHub id="github" />
-                <TermosDeUso id="termos" />
+                <Sobre />
+                <ApiDocs  />
+                <Contato />
+                <GitHub  />
+                <TermosDeUso />
             </div>
         </Container>
     )

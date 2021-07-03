@@ -13,6 +13,7 @@
     "gfm": "^0.0.1",
     "google-maps-react": "^2.0.6",
     "react": "^17.0.2",
+    "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-bootstrap": "^1.6.1",
     "react-dom": "^17.0.2",
     "react-iframe": "^1.8.0",

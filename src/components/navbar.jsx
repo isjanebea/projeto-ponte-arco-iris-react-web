@@ -12,7 +12,7 @@ const Nav = styled.nav`
     width: 100%;
     display: flex;
     flex-direction: row;
-    position: static;
+    position: ${(props) => props.pos ? 'fixed' : 'static'};
     border: 0px black solid;
     justify-content: space-between;
     align-items: center;
