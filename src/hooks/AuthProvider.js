@@ -2,7 +2,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import history from '../routes/history';
 import server from '../services/server';
-
+import theme from '../styles/theme';
 
 export default function useAuth() {
     const [auth, setAuth] = useState(false);
@@ -13,6 +13,7 @@ export default function useAuth() {
 
     const ToggleTheme = () => {
         setDark(dark ? false : true)
+        theme.toggleTheme(dark);
         return null;
     }
 
@@ -55,6 +56,6 @@ export default function useAuth() {
         menu,
         setMenu,
         ToggleTheme,
-        theme : dark,
+        theme
     }
 }

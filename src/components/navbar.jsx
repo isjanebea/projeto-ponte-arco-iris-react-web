@@ -29,11 +29,11 @@ const Nav = styled.nav`
     align-items: center;
     `
 const NavButton = styled(Button)`
-      color: ${props => props.theme.dark ? 'white' : 'black'};
+      color: ${props => props.theme.color.primary};
 `
 
 const StyledAccountCircleIcon = styled(AccountCircleIcon)`
-      color: ${props => props.theme.dark ? 'white' : 'black'};
+      color: ${props => props.theme.color.primary};
 `
 
 
@@ -46,9 +46,10 @@ const AlignCenter = styled.div `
 
 
 const RightMenu = () => {
-    const { handleClick } = NavBarHooks();
+    const { handleClick, ToggleTheme, theme } = NavBarHooks();
     return (
         <AlignCenter>
+            <Button onClick={ToggleTheme}>{theme.use}</Button>
             <Button onClick={() => handleClick("/login")}><StyledAccountCircleIcon /></Button>
         </AlignCenter>
     )
@@ -56,12 +57,12 @@ const RightMenu = () => {
 
 
 const NavBar = (props) => {
-    const { handleClick, menu } = NavBarHooks();
+    const { handleClick, menu, theme } = NavBarHooks();
     return (
         <Nav pos={menu}>
             <AlignCenter>
                 {/* LEFT */}
-                <Logo />
+                <Logo black={theme.use=='light'} />
                 <NavButton onClick={() => handleClick("/")}>Home</NavButton>
                 <NavButton onClick={() => handleClick("/acolhida")}>Lares</NavButton>
                 <NavButton onClick={() => handleClick("/sobre")}>Sobre</NavButton>

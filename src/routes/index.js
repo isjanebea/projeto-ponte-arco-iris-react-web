@@ -12,7 +12,6 @@ import history from './history'
 
 import GlobalStyle from '../styles/global';
 import { ThemeProvider } from 'styled-components'
-import theme from '../styles/theme';
 import '../styles/animation.css'
 import CssBaseline from '@material-ui/core/CssBaseline';
 
@@ -51,7 +50,7 @@ const Routes = () => (
 
 
 const Navigation = () => {
-    theme.dark = useContext(Context).theme;
+    const { theme } = useContext(Context);
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />

@@ -5,9 +5,9 @@ const Header = props => {
 
 
     return (
-        <div>
-            <NavBar menu={true} />
-        </div>
+        <header>
+            <NavBar />
+        </header>
     )
 }
 

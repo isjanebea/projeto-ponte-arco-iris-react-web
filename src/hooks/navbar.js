@@ -5,7 +5,7 @@ import { Context } from '../context'
 
 
 const NavBarHooks = () => {
-    const { menu, setMenu, toggleTheme } = useContext(Context);
+    const { menu, setMenu, ToggleTheme, theme } = useContext(Context);
     const handleClick = (location) => {
         if (menu) {
             setMenu(false)
@@ -14,7 +14,9 @@ const NavBarHooks = () => {
     }
     return {
         handleClick,
-        menu
+        menu,
+        ToggleTheme,
+        theme
     }
 }
 

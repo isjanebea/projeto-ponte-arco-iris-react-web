@@ -116,8 +116,8 @@ const Host = () => {
     return loading ? (
         <Loading />
     ) : (
-        <div style={{ background: "rgba(255, 255, 255, 0.3)"}}>
-            <div style={{ minHeight: '100vh', width: '100%'}}>
+        <div style={{ background: "rgba(255, 255, 255, 0.3)" }}>
+            <div style={{ minHeight: '100vh', width: '100%' }}>
                 <Filter host={hostList} />
                 <List>
                     <ListGroup>
