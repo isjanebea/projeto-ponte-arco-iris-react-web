@@ -8,7 +8,7 @@ import { Context } from '../../context'
 
 
 
-import API from '../api/api';
+
 import HOME from '../home'
 
 const Container = styled.div`
@@ -127,7 +127,6 @@ const ApiDocs = () => {
         <PageContainer id="api-docs">
             <Titulo>Documentação da API</Titulo>
             <P>Pagina em construção</P>
-            <API />
         </PageContainer>
     )
 }

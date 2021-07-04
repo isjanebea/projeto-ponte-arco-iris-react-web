@@ -9,8 +9,13 @@ export default function useAuth() {
     const [loading, setLoading] = useState(true);
     const [hostSeach, setHostSeach] = useState('');
     const [menu, setMenu] = useState(false);
+    const [dark, setDark] = useState(true);
 
-    
+    const ToggleTheme = () => {
+        setDark(dark ? false : true)
+        return null;
+    }
+
     const handleLogin = async () => {
         try {
             const { data: { token, user: { user, email } } } = await server.post("auth/")
@@ -48,6 +53,8 @@ export default function useAuth() {
         setHostSeach,
         hostSeach,
         menu,
-         setMenu
+        setMenu,
+        ToggleTheme,
+        theme : dark,
     }
 }

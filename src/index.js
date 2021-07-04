@@ -1,15 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Router from './routes';
+import Navigation from './routes';
 import reportWebVitals from './reportWebVitals';
-import './animation.css'
+import { AuthProvider } from './context';
 
 
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router />
+    <AuthProvider>
+      <Navigation />
+    </AuthProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

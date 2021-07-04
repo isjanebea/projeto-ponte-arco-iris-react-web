@@ -2,7 +2,6 @@ import React, { Component, useState, useEffect } from 'react'
 import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
 import gfm from 'remark-gfm'
-import './api.css'
 import DocumentacaoHooks from  '../../hooks/documentacao'
 import Error from '../../components/error'
 import Loading from '../../components/loading';

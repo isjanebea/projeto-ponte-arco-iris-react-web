@@ -87,7 +87,7 @@ const CardHost = ({ host, _id, uf, city }) => (
             </div>
             <div style={{ display: "flex", justifyContent: "space-around", alignItems: "center", flexWrap: "wrap-reverse", lineHeight: "3em" }}>
                 <div>
-                    <Button variant="outlined" color="secondary" href={'/acolhida/' + _id}>Mais informações</Button>
+                    <Button variant="outlined" color="secondary" onClick={() => history.push('/acolhida/' + _id)}>Mais informações</Button>
                 </div>
                 <div style={{ display: "flex", alignItems: "center" }}>
                     <LocationOnIcon style={{ fontSize: '15px' }} /><Typography variant="body1" style={{ fontSize: '15px' }}>{city} - {uf}</Typography>

@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Router, Switch } from 'react-router-dom';
 
-import { AuthProvider } from '../context';
+import { Context } from '../context';
 import { PublicRouter, PrivateRouter } from './custom';
 import history from './history'
+
+
+/**
+ * CSS, SSAS, ESTILOS
+ */
+
+import GlobalStyle from '../styles/global';
+import { ThemeProvider } from 'styled-components'
+import theme from '../styles/theme';
+import '../styles/animation.css'
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 
 /***** COMPONENTS */
@@ -39,18 +50,20 @@ const Routes = () => (
 )
 
 
-
-const Routers = () => {
+const Navigation = () => {
+    theme.dark = useContext(Context).theme;
     return (
-        <AuthProvider>
+        <ThemeProvider theme={theme}>
+            <CssBaseline />
             <Router history={history}>
                 <Header />
-                    <Routes />
-                {/* <Footer /> */}
+                <Routes />
+                <Footer />
             </Router>
-        </AuthProvider>
+            <GlobalStyle />
+        </ThemeProvider>
     )
 }
 
 
-export default Routers;
+export default Navigation;
