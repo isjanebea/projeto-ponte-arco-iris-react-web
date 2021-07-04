@@ -12,8 +12,8 @@ export default function useAuth() {
     const [dark, setDark] = useState(true);
 
     const ToggleTheme = () => {
+        theme.toggleTheme(dark ? false : true);
         setDark(dark ? false : true)
-        theme.toggleTheme(dark);
         return null;
     }
 

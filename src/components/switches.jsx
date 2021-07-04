@@ -4,17 +4,15 @@ import NavBarHooks from '../hooks/navbar';
 
 
 export default function Switches() {
-  const [state, setState] = React.useState(false);
-  const { ToggleTheme } = NavBarHooks();
+  const { ToggleTheme, theme } = NavBarHooks();
   const handleChange = (event) => {
     ToggleTheme()
-    setState(event.target.checked);
   };
 
   return (
     <div>
       <Switch
-        checked={state.checkedA}
+        checked={theme.use=='dark'}
         onChange={handleChange}
         name="themeProvider"
         inputProps={{ 'aria-label': 'secondary checkbox' }}
