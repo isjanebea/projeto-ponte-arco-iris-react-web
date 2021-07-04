@@ -45,7 +45,7 @@ const AlignCenter = styled.div `
 
 
 
-const OtherMenu = ({ classes: style }) => {
+const RightMenu = () => {
     const { handleClick } = NavBarHooks();
     return (
         <AlignCenter>
@@ -60,12 +60,13 @@ const NavBar = (props) => {
     return (
         <Nav pos={menu}>
             <AlignCenter>
+                {/* LEFT */}
                 <Logo />
                 <NavButton onClick={() => handleClick("/")}>Home</NavButton>
                 <NavButton onClick={() => handleClick("/acolhida")}>Lares</NavButton>
                 <NavButton onClick={() => handleClick("/sobre")}>Sobre</NavButton>
             </AlignCenter>
-            <OtherMenu />
+            <RightMenu />
         </Nav>
     )
 }

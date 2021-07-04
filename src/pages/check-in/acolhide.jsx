@@ -3,7 +3,7 @@ import Loading from '../../components/loading';
 import Error from '../../components/error';
 import EstadosHooks from '../../hooks/estados'
 import styled from 'styled-components';
-import Options from '../../components/option'
+import Options from '../../components/filterSelect'
 const Main = styled.main`
     width: 100%;
     background-size: cover;

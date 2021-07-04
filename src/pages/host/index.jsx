@@ -6,7 +6,7 @@ import HostHooks from '../../hooks/host'
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import Error from '../../components/error';
 import Loading from '../../components/loading';
-import FilterOptios from '../../components/option';
+import FilterOptios from '../../components/filterSelect';
 import history from '../../routes/history'
 
 
