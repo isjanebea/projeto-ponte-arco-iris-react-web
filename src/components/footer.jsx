@@ -9,7 +9,7 @@ const FooterComponent= styled.div`
     color: white;
     background: red;
     position: absolute;
-    z-index: 20;
+    z-index: 15;
     background: ${props => props.theme.use=='dark' ? "black" : "white" };
 `
 

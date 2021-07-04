@@ -13,7 +13,8 @@ const Dark = {
     bgCard2 : "rgba(255,255,255,0.8)",
     borderCard : "rgba(30,30,30,0.2)",
     cardColor : "rgb(60,0,30)",
-    bg : "rgb(20,20,20)"
+    bg : "rgb(20,20,20)",
+    filterBg : "rgba(255,255,255,0.3)"
 }
 
 

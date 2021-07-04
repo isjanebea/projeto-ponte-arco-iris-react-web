@@ -17,9 +17,10 @@ import {
     CardHeader,
     FilterComponent,
     Card,
-    Container
+    Container,
+    LabelLocation
 } from './index.style'
-
+// style={{ display: "flex", justifyContent: "space-around", alignItems: "center", flexWrap: "wrap-reverse", lineHeight: "3em" }}
 const CardHost = ({ host, _id, uf, city }) => (
     <div>
         <Card className="descricao">
@@ -35,14 +36,12 @@ const CardHost = ({ host, _id, uf, city }) => (
                 </Typography>
 
             </div>
-            <div style={{ display: "flex", justifyContent: "space-around", alignItems: "center", flexWrap: "wrap-reverse", lineHeight: "3em" }}>
-                <div>
+            <ButtonBar>
                     <Button variant="outlined" color="secondary" onClick={() => history.push('/acolhida/' + _id)}>Mais informações</Button>
-                </div>
-                <div style={{ display: "flex", alignItems: "center" }}>
+                <LabelLocation>
                     <LocationOnIcon style={{ fontSize: '15px' }} /><Typography variant="body1" style={{ fontSize: '15px' }}>{city} - {uf}</Typography>
-                </div>
-            </div>
+                </LabelLocation>
+            </ButtonBar>
         </Card>
     </div>
 )
@@ -66,7 +65,7 @@ const Host = () => {
     return loading ? (
         <Loading />
     ) : (
-        <Container>
+        <Container color="filterBg">
             <div style={{ minHeight: '100vh', }}>
                 <Filter host={hostList} />
                 <List>

@@ -10,20 +10,22 @@ import {
     SideMenu,
     PageContainer,
     AchorButton,
-    ButtonListIcon
+    ButtonListIcon,
+    Menu
 } from './style';
 import { H2, P } from '../../components/text';
 
-
+import { AddCircle } from '../../components/iconMenu';
 
 const ListItem = (props) => {
     const handleClick = (event) => {
-
+        
     }
     return (
         <li>
+            <ButtonListIcon color="secondary" />
             <AnchorLink href={props.to}>
-                <AchorButton color="secondary" startIcon={<ButtonListIcon color="secondary" />} onClick={handleClick}>{props.text}</AchorButton>
+                <AchorButton color="secondary" onClick={handleClick}>{props.text}</AchorButton>
             </AnchorLink>
         </li>
     )
@@ -78,22 +80,28 @@ const GitHub = () => {
 const About = () => {
 
     const { setMenu, menu } = useContext(Context);
+    const [ visible, setVisible ] = useState(false)
     useEffect(() => {
 
         if (menu == false) {
             setMenu(true)
         }
     }, [])
+
+    const handleClick = () => {
+        setVisible(visible ? false : true);
+    }
     return (
         <Container>
             <SideMenu>
-                <ul>
+                <a onClick={ handleClick }><AddCircle/></a>
+               <Menu open={visible} onClick={visible ? handleClick : () => null}> 
                     <ListItem text="Sobre" to="#descricao" />
                     <ListItem text="API DOCS" to="#api-docs" />
                     <ListItem text="Contato" to="#contato" />
                     <ListItem text="GitHub" to="#github" />
                     <ListItem text="Termos de uso" to="#termos" />
-                </ul>
+                </Menu>
             </SideMenu>
             <div className="pages">
                 <Sobre />

@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { Button } from '@material-ui/core';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import Logo from './logo';
+import MenuIcon from './iconMenu';
 import Switches from './switches';
 
 import NavBarHooks from '../hooks/navbar';
@@ -46,7 +47,7 @@ const AlignCenter = styled.div`
 
 
 const RightMenu = () => {
-    const { handleClick, ToggleTheme, theme } = NavBarHooks();
+    const { handleClick, theme } = NavBarHooks();
     return (
         <AlignCenter>
             <Switches />
