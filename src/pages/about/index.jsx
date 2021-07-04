@@ -1,96 +1,29 @@
 import React, { useState, useContext } from 'react';
 import styled from 'styled-components'
-import { Button, Typography } from '@material-ui/core';
-import ListIcon from '@material-ui/icons/List';
-import { makeStyles } from '@material-ui/core/styles';
+
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { Context } from '../../context' 
 
 
+import {
+    Container,
+    SideMenu,
+    PageContainer,
+    AchorButton,
+    ButtonListIcon
+} from './style';
+import { H2 , P } from '../../components/text';
 
 
-import HOME from '../home'
-
-const Container = styled.div`
-    margin-top: 30px;
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    padding-top: 5px;
-    @media (max-width: 425px) {
-        display: flex;
-        flex-direction: column;
-        
-    }
-
-    @media (max-width: 767px) {
-        grid-template-columns: 200px 1fr;
-        
-    }
-
-    @media (max-width: 1024px) {
-        grid-template-columns: 200px 1fr;
-        
-    }
-    .pages {
-        
-    }
-    
-`
-
-const SideMenu = styled.div`
-    border-right: 1px rgba(0,0,0,0.1)  solid;
-
-    
-
-    ul {
-        position: fixed;
-        background: rgba(255,255,255,0.7);
-        height: 100vh;
-        padding: 10px 30px 10px 20px;
-    }
-    @media (max-width: 425px) {
-        height: 100%;
-        margin-bottom: 5px;
-    }
-`
-
-const PageContainer = styled.section`
-    background: rgba(255,255,255, 0.7);
-    border-radius: 5px;
-    margin: 0px 5px 5px 5px;
-    padding: 30px 10px 30px 10px;
-`
-
-const Titulo = styled.h3`
-    color : rgb(70,30,70);
-    font-family: Roboto, sans-serif;
-    font-size: 2em;
-    line-height: 2em;
-`
-
-const P = styled.p`
-    color : rgb(60,30,60);
-    font-family: Roboto, sans-serif;
-    font-size: 1em;
-    line-height: 1em;
-`
-
-
-const useStyles = makeStyles({
-    button: {
-        color: 'rgb(60,30,60)',
-    }
-});
 
 const ListItem = (props) => {
-    const styles = useStyles();
     const handleClick = (event) => {
         
     }
     return (
         <li>
             <AnchorLink href={props.to}>
-                <Button className={styles.button} startIcon={<ListIcon />} onClick={handleClick}>{props.text}</Button>
+                <AchorButton startIcon={<ButtonListIcon  />} onClick={handleClick}>{props.text}</AchorButton>
                 </AnchorLink>
         </li>
     )
@@ -99,7 +32,7 @@ const ListItem = (props) => {
 const Contato = () => {
     return (
         <PageContainer id="contato">
-            <Titulo>Contato</Titulo>
+            <H2>Contato</H2>
             <P>Pagina em Construcao</P>
         </PageContainer>
     )
@@ -107,7 +40,7 @@ const Contato = () => {
 const TermosDeUso = () => {
     return (
         <PageContainer id="termos">
-            <Titulo>Termos de Uso</Titulo>
+            <H2>Termos de Uso</H2>
             <P>Pagina em construção</P>
         </PageContainer>
     )
@@ -116,7 +49,7 @@ const TermosDeUso = () => {
 const Sobre = () => {
     return (
         <PageContainer id="descricao">
-            <Titulo>Ponte Arco Iris</Titulo>
+            <H2>Ponte Arco Iris</H2>
             <P>Pagina em construção</P>
         </PageContainer>
     )
@@ -125,7 +58,7 @@ const Sobre = () => {
 const ApiDocs = () => {
     return (
         <PageContainer id="api-docs">
-            <Titulo>Documentação da API</Titulo>
+            <H2>Documentação da API</H2>
             <P>Pagina em construção</P>
         </PageContainer>
     )
@@ -134,7 +67,7 @@ const ApiDocs = () => {
 const GitHub = () => {
     return (
         <PageContainer id="github">
-            <Titulo>Desenvolvedore? Colabore!</Titulo>
+            <H2>Desenvolvedore? Colabore!</H2>
             <P>Pagina em construção</P>
         </PageContainer>
     )

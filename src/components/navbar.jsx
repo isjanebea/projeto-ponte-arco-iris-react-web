@@ -29,11 +29,11 @@ const Nav = styled.nav`
     align-items: center;
     `
 const NavButton = styled(Button)`
-      color: ${props => props.theme.color.primary};
+      color: ${props => props.theme.color.secundary};
 `
 
 const StyledAccountCircleIcon = styled(AccountCircleIcon)`
-      color: ${props => props.theme.color.primary};
+      color: ${props => props.theme.color.secundary};
 `
 
 

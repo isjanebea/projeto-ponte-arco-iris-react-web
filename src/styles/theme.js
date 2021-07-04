@@ -1,11 +1,14 @@
 
 const Dark = {
-    primary : "white",
-    secundary: "rgb(60,30,60)", 
+    primary : "rgb(60,30,60)",
+    secundary: "white", 
     destaque : 'rgb(50,0,50)',
+    title: 'white',
     icones : "rgb(40,40,40)",
     border : "255,255,255",
-    bgImage: "rgba(0,0,0,.8)"
+    bgImage: "rgba(0,0,0,.8)",
+    bgOpacity : "255,255,255",
+    borderSecundary : '0,0,0'
 }
 
 
@@ -18,11 +21,9 @@ const Dark = {
     
 // }
 const Light = {
-    primary : "white",
-    secundary: "rgb(60,30,60)", 
-    icones : "rgb(40,40,40)",
-    border : "255,255,255",
-    bgImage: "rgba(0,0,0,.8)"
+    ...Dark,
+    primary: "red",
+    icones : "red"
 }
 
 

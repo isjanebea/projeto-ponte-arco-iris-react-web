@@ -1,7 +1,7 @@
 import React from 'react';
 import history from '../../routes/history'
 import { Card, Header, Main } from './style';
-import { Titulo } from '../../components/text';
+import { Titulo, H2 } from '../../components/text';
 
 
 
@@ -14,11 +14,11 @@ const Home = props => {
         <Main>
             <Header>
                 <Card onClick={() => history.push("/acolhide")}>
-                    <Titulo variant="h2" text="Precisa de Ajuda?" />
+                    <H2 color="secundary">Precisa de Ajuda?</H2>
 
                 </Card>
                 <Card onClick={handleClick}>
-                    <Titulo variant="h2" text="Quero Ajudar" />
+                <H2 color="secundary">Quero Ajudar</H2>
 
                 </Card>
             </Header>
