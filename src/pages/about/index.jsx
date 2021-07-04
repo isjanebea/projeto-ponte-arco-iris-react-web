@@ -1,8 +1,8 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import styled from 'styled-components'
 
 import AnchorLink from "react-anchor-link-smooth-scroll";
-import { Context } from '../../context' 
+import { Context } from '../../context'
 
 
 import {
@@ -12,19 +12,19 @@ import {
     AchorButton,
     ButtonListIcon
 } from './style';
-import { H2 , P } from '../../components/text';
+import { H2, P } from '../../components/text';
 
 
 
 const ListItem = (props) => {
     const handleClick = (event) => {
-        
+
     }
     return (
         <li>
             <AnchorLink href={props.to}>
-                <AchorButton color="secundary" startIcon={<ButtonListIcon color="secundary"   />} onClick={handleClick}>{props.text}</AchorButton>
-                </AnchorLink>
+                <AchorButton color="secondary" startIcon={<ButtonListIcon color="secondary" />} onClick={handleClick}>{props.text}</AchorButton>
+            </AnchorLink>
         </li>
     )
 }
@@ -32,16 +32,16 @@ const ListItem = (props) => {
 const Contato = () => {
     return (
         <PageContainer id="contato">
-            <H2 color="secundary">Contato</H2>
-            <P color="secundary">Pagina em Construcao</P>
+            <H2 color="secondary">Contato</H2>
+            <P color="secondary">Pagina em Construcao</P>
         </PageContainer>
     )
 }
 const TermosDeUso = () => {
     return (
         <PageContainer id="termos">
-            <H2 color="secundary">Termos de Uso</H2>
-            <P color="secundary">Pagina em construção</P>
+            <H2 color="secondary">Termos de Uso</H2>
+            <P color="secondary">Pagina em construção</P>
         </PageContainer>
     )
 }
@@ -49,8 +49,8 @@ const TermosDeUso = () => {
 const Sobre = () => {
     return (
         <PageContainer id="descricao">
-            <H2 color="secundary">Ponte Arco Iris</H2>
-            <P color="secundary">Pagina em construção</P>
+            <H2 color="secondary">Ponte Arco Iris</H2>
+            <P color="secondary">Pagina em construção</P>
         </PageContainer>
     )
 }
@@ -58,8 +58,8 @@ const Sobre = () => {
 const ApiDocs = () => {
     return (
         <PageContainer id="api-docs">
-            <H2 color="secundary">Documentação da API</H2>
-            <P color="secundary">Pagina em construção</P>
+            <H2 color="secondary">Documentação da API</H2>
+            <P color="secondary">Pagina em construção</P>
         </PageContainer>
     )
 }
@@ -67,8 +67,8 @@ const ApiDocs = () => {
 const GitHub = () => {
     return (
         <PageContainer id="github">
-            <H2 color="secundary">Desenvolvedore? Colabore!</H2>
-            <P color="secundary">Pagina em construção</P>
+            <H2 color="secondary">Desenvolvedore? Colabore!</H2>
+            <P color="secondary">Pagina em construção</P>
         </PageContainer>
     )
 }
@@ -77,16 +77,18 @@ const GitHub = () => {
 // a
 const About = () => {
 
- const { setMenu, menu } = useContext(Context);
- 
- if (menu==false) {
-     setMenu(true)
- }
+    const { setMenu, menu } = useContext(Context);
+    useEffect(() => {
+
+        if (menu == false) {
+            setMenu(true)
+        }
+    }, [])
     return (
         <Container>
             <SideMenu>
                 <ul>
-                    <ListItem text="Sobre" to="#descricao"/>
+                    <ListItem text="Sobre" to="#descricao" />
                     <ListItem text="API DOCS" to="#api-docs" />
                     <ListItem text="Contato" to="#contato" />
                     <ListItem text="GitHub" to="#github" />
@@ -95,9 +97,9 @@ const About = () => {
             </SideMenu>
             <div className="pages">
                 <Sobre />
-                <ApiDocs  />
+                <ApiDocs />
                 <Contato />
-                <GitHub  />
+                <GitHub />
                 <TermosDeUso />
             </div>
         </Container>

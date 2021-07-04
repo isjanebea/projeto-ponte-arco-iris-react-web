@@ -14,11 +14,11 @@ const Home = props => {
         <Main>
             <Header>
                 <Card onClick={() => history.push("/acolhide")}>
-                    <H2 color="secundary">Precisa de Ajuda?</H2>
+                    <H2 color="secondary">Precisa de Ajuda?</H2>
 
                 </Card>
                 <Card onClick={handleClick}>
-                <H2 color="secundary">Quero Ajudar</H2>
+                <H2 color="secondary">Quero Ajudar</H2>
 
                 </Card>
             </Header>

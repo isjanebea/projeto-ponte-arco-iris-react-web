@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { Button } from '@material-ui/core';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import Logo from './logo';
-
+import Switches from './switches';
 
 import NavBarHooks from '../hooks/navbar';
 
@@ -29,11 +29,11 @@ const Nav = styled.nav`
     align-items: center;
     `
 const NavButton = styled(Button)`
-      color: ${props => props.theme.color.secundary};
+      color: ${props => props.theme.color.secondary};
 `
 
 const StyledAccountCircleIcon = styled(AccountCircleIcon)`
-      color: ${props => props.theme.color.secundary};
+      color: ${props => props.theme.color.secondary};
 `
 
 
@@ -49,7 +49,7 @@ const RightMenu = () => {
     const { handleClick, ToggleTheme, theme } = NavBarHooks();
     return (
         <AlignCenter>
-            <NavButton onClick={ToggleTheme}>{theme.use}</NavButton >
+            <Switches />
             <Button onClick={() => handleClick("/login")}><StyledAccountCircleIcon /></Button>
         </AlignCenter>
     )

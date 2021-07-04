@@ -25,7 +25,7 @@ const Container = styled.div`
 `
 
 const SideMenu = styled.div`
-    border-right: 1px rgba(${props => props.theme.color.borderSecundary}, 0.1)  solid;
+    border-right: 1px rgba(${props => props.theme.color.bordersecondary}, 0.1)  solid;
     width: 200px;
 
     ul {
