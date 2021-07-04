@@ -13,7 +13,8 @@ const NavBarHooks = () => {
         history.push(location)
     }
     return {
-        handleClick
+        handleClick,
+        menu
     }
 }
 

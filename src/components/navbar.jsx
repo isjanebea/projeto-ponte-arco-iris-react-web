@@ -10,9 +10,12 @@ import  Logo  from './logo';
 import NavBarHooks  from '../hooks/navbar';
 
 const themeBg = theme => `rgba(${theme ? '0,0,0,1' : '255,255,255,1'})`;
+const themeBox = theme => `rgba(${theme ? '0,0,0,.3' : '255,255,255,.3'})`;
+
+
 const Nav = styled.nav`
     color:  rgb(255,255,255);
-    box-shadow: 1px 1px 1px rgba(255,255,255,0);
+    box-shadow: 1px 1px 1px ${ props => props.pos ? themeBox(props.theme.dark) : 'rgba(0,0,0,0)'};
     width: 100%;
     display: flex;
     flex-direction: row;
