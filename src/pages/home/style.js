@@ -3,7 +3,7 @@ import bgArcoIris from '../../assets/img/arco-iris.png';
 
 const Main = styled.main` 
     background-size: cover;
-    background: url(${bgArcoIris}) rgba(0, 0, 0, 0.8) no-repeat left top;
+    background: url(${bgArcoIris}) ${props => props.theme.color.bgImage} no-repeat left top;
     display: flex;
     justify-content: center;
     background-size: cover;
@@ -27,7 +27,7 @@ const Img = styled.img`
     border-radius: 5px;
 `
 const Card = styled.div` 
-    border: 1px rgba(255, 255, 255, 0.2) solid;
+    border: 1px rgba(${props => props.theme.color.border}, 0.2) solid;
     border-radius: 5px;
     margin: 10px;
     width: 40vh;
@@ -56,8 +56,8 @@ const Card = styled.div`
         }
 
         &:hover {
-            background: rgba(255, 255, 255, 0.1);
-            box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.3);
+            background: rgba(${props => props.theme.color.border}, 0.1);
+            box-shadow: 1px 1px 1px rgba(${props => props.theme.color.border}, 0.3);
             transform: scale(1.05);
         }
 

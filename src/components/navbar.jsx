@@ -9,18 +9,18 @@ import  Logo  from './logo';
 
 import NavBarHooks  from '../hooks/navbar';
 
-const themeBg = theme => `rgba(${theme ? '0,0,0,1' : '255,255,255,1'})`;
-const themeBox = theme => `rgba(${theme ? '0,0,0,.3' : '255,255,255,.3'})`;
+const themeBg = theme => `rgba(${theme.use=='dark' ? '0,0,0,1' : '255,255,255,1'})`;
+const themeBox = theme => `rgba(${theme.use=='dark' ? '0,0,0,.3' : '255,255,255,.3'})`;
 
 
 const Nav = styled.nav`
     color:  rgb(255,255,255);
-    box-shadow: 1px 1px 1px ${ props => props.pos ? themeBox(props.theme.dark) : 'rgba(0,0,0,0)'};
+    box-shadow: 1px 1px 1px ${ props => props.pos ? themeBox(props.theme) : 'rgba(0,0,0,0)'};
     width: 100%;
     display: flex;
     flex-direction: row;
     position: ${(props) => props.pos ? 'fixed' : 'static'};
-    background ${(props) => props.pos ? themeBg(props.theme.dark) : 'rgba(0,0,0,0)'};
+    background ${(props) => props.pos ? themeBg(props.theme) : 'rgba(0,0,0,0)'};
     z-index: 10;
     left: 0;
     top: 0;
@@ -49,7 +49,7 @@ const RightMenu = () => {
     const { handleClick, ToggleTheme, theme } = NavBarHooks();
     return (
         <AlignCenter>
-            <Button onClick={ToggleTheme}>{theme.use}</Button>
+            <NavButton  onClick={ToggleTheme}>{theme.use}</NavButton >
             <Button onClick={() => handleClick("/login")}><StyledAccountCircleIcon /></Button>
         </AlignCenter>
     )
@@ -62,7 +62,7 @@ const NavBar = (props) => {
         <Nav pos={menu}>
             <AlignCenter>
                 {/* LEFT */}
-                <Logo black={theme.use=='light'} />
+                <Logo />
                 <NavButton onClick={() => handleClick("/")}>Home</NavButton>
                 <NavButton onClick={() => handleClick("/acolhida")}>Lares</NavButton>
                 <NavButton onClick={() => handleClick("/sobre")}>Sobre</NavButton>

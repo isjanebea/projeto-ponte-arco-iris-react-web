@@ -64,7 +64,7 @@ table {
 } 
 
 svg {
-    color : ${props => props.theme.dark ? "rgb(40,40,40)" : "white"};
+    color : ${props => props.theme.color.icones};
 }
   a {
       text-decoration: none;
@@ -85,9 +85,12 @@ svg {
   h1 {
       font-size: 2em;
   }
+  h1, h2, h3 {
+      font-weight: 200;
+  }
 
   td, .border-left, .border-top, .border-right, .border-bottom, .border {
-      border-color: rgba(${props => props.theme.dark ? '0,0,0' : '255,255,255'}, .2);
+      border-color: rgba(${props => props.theme.use=='dark' ? '0,0,0' : '255,255,255'}, .2);
       border-style: solid;
   }
   td , .border {
@@ -106,6 +109,7 @@ svg {
     line-height: 2;
    
 }
+
 `
 
 // later in your app
