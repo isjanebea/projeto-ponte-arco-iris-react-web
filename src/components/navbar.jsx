@@ -4,18 +4,18 @@ import styled from 'styled-components';
 
 import { Button } from '@material-ui/core';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import  Logo  from './logo';
+import Logo from './logo';
 
 
-import NavBarHooks  from '../hooks/navbar';
+import NavBarHooks from '../hooks/navbar';
 
-const themeBg = theme => `rgba(${theme.use=='dark' ? '0,0,0,1' : '255,255,255,1'})`;
-const themeBox = theme => `rgba(${theme.use=='dark' ? '0,0,0,.3' : '255,255,255,.3'})`;
+const themeBg = theme => `rgba(${theme.use == 'dark' ? '0,0,0,1' : '255,255,255,1'})`;
+const themeBox = theme => `rgba(${theme.use == 'dark' ? '0,0,0,.3' : '255,255,255,.3'})`;
 
 
 const Nav = styled.nav`
     color:  rgb(255,255,255);
-    box-shadow: 1px 1px 1px ${ props => props.pos ? themeBox(props.theme) : 'rgba(0,0,0,0)'};
+    box-shadow: 1px 1px 1px ${props => props.pos ? themeBox(props.theme) : 'rgba(0,0,0,0)'};
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -37,7 +37,7 @@ const StyledAccountCircleIcon = styled(AccountCircleIcon)`
 `
 
 
-const AlignCenter = styled.div `
+const AlignCenter = styled.div`
    display: flex;
    itens-aligm: center;
 `
@@ -49,7 +49,7 @@ const RightMenu = () => {
     const { handleClick, ToggleTheme, theme } = NavBarHooks();
     return (
         <AlignCenter>
-            <NavButton  onClick={ToggleTheme}>{theme.use}</NavButton >
+            <NavButton onClick={ToggleTheme}>{theme.use}</NavButton >
             <Button onClick={() => handleClick("/login")}><StyledAccountCircleIcon /></Button>
         </AlignCenter>
     )
@@ -59,16 +59,24 @@ const RightMenu = () => {
 const NavBar = (props) => {
     const { handleClick, menu, theme } = NavBarHooks();
     return (
-        <Nav pos={menu}>
-            <AlignCenter>
-                {/* LEFT */}
-                <Logo />
-                <NavButton onClick={() => handleClick("/")}>Home</NavButton>
-                <NavButton onClick={() => handleClick("/acolhida")}>Lares</NavButton>
-                <NavButton onClick={() => handleClick("/sobre")}>Sobre</NavButton>
-            </AlignCenter>
-            <RightMenu />
-        </Nav>
+        <>
+            <Nav pos={menu}>
+                <AlignCenter>
+                    {/* LEFT */}
+                    <Logo />
+                    <NavButton onClick={() => handleClick("/")}>Home</NavButton>
+                    <NavButton onClick={() => handleClick("/acolhida")}>Lares</NavButton>
+                    <NavButton onClick={() => handleClick("/sobre")}>Sobre</NavButton>
+                </AlignCenter>
+                <RightMenu />
+            </Nav>
+            {menu &&
+                <>
+                    <br></br>
+                    <br></br>
+                </>
+            }
+        </>
     )
 }
 

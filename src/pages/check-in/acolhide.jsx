@@ -7,7 +7,7 @@ import Options from '../../components/filterSelect'
 
 
 import { Main, Header, Container } from './acolhide.style.js'
-import { Titulo } from '../../components/text';
+import { H1 } from '../../components/text';
 
 
 
@@ -17,7 +17,7 @@ const CheckInComponent = (props) => {
             <Main>
                 <Header>
                     <Container>
-                        <Titulo variant="h1" color="destaque" text="Escolha seu Estado" /><Options bar={false} />
+                        <H1 style={{ lineHeight : "1em"}}  color="destaque">Escolha seu Estado</H1><Options bar={false} />
                     </Container>
                 </Header>
             </Main>

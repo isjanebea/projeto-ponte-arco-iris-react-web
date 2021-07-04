@@ -3,7 +3,6 @@ import { Button  } from '@material-ui/core';
 import ListIcon from '@material-ui/icons/List';
 
 const Container = styled.div`
-    margin-top: 30px;
     display: grid;
     grid-template-columns: 200px 1fr;
     padding-top: 5px;
@@ -27,14 +26,13 @@ const Container = styled.div`
 
 const SideMenu = styled.div`
     border-right: 1px rgba(${props => props.theme.color.borderSecundary}, 0.1)  solid;
-
-    
+    width: 200px;
 
     ul {
         position: fixed;
         background: rgba(${props => props.theme.color.bgOpacity},0.7);
-        height: 100vh;
         padding: 10px 30px 10px 20px;
+        height: 100vh;
     }
     @media (max-width: 425px) {
         height: 100%;
@@ -49,10 +47,10 @@ const PageContainer = styled.section`
     padding: 30px 10px 30px 10px;
 `
 const AchorButton = styled(Button) `
-    color : ${props => props.theme.color.primary}
+    color : ${props => props.color ? props.theme.color[props.color] : props.theme.color.primary}
 `
 const ButtonListIcon = styled(ListIcon) `
-    color : ${props => props.theme.color.primary}
+    color : ${props => props.color ? props.theme.color[props.color] : props.theme.color.primary}
 `
 
 export {

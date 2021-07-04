@@ -23,7 +23,7 @@ const ListItem = (props) => {
     return (
         <li>
             <AnchorLink href={props.to}>
-                <AchorButton startIcon={<ButtonListIcon  />} onClick={handleClick}>{props.text}</AchorButton>
+                <AchorButton color="secundary" startIcon={<ButtonListIcon color="secundary"   />} onClick={handleClick}>{props.text}</AchorButton>
                 </AnchorLink>
         </li>
     )
@@ -32,16 +32,16 @@ const ListItem = (props) => {
 const Contato = () => {
     return (
         <PageContainer id="contato">
-            <H2>Contato</H2>
-            <P>Pagina em Construcao</P>
+            <H2 color="secundary">Contato</H2>
+            <P color="secundary">Pagina em Construcao</P>
         </PageContainer>
     )
 }
 const TermosDeUso = () => {
     return (
         <PageContainer id="termos">
-            <H2>Termos de Uso</H2>
-            <P>Pagina em construção</P>
+            <H2 color="secundary">Termos de Uso</H2>
+            <P color="secundary">Pagina em construção</P>
         </PageContainer>
     )
 }
@@ -49,8 +49,8 @@ const TermosDeUso = () => {
 const Sobre = () => {
     return (
         <PageContainer id="descricao">
-            <H2>Ponte Arco Iris</H2>
-            <P>Pagina em construção</P>
+            <H2 color="secundary">Ponte Arco Iris</H2>
+            <P color="secundary">Pagina em construção</P>
         </PageContainer>
     )
 }
@@ -58,8 +58,8 @@ const Sobre = () => {
 const ApiDocs = () => {
     return (
         <PageContainer id="api-docs">
-            <H2>Documentação da API</H2>
-            <P>Pagina em construção</P>
+            <H2 color="secundary">Documentação da API</H2>
+            <P color="secundary">Pagina em construção</P>
         </PageContainer>
     )
 }
@@ -67,8 +67,8 @@ const ApiDocs = () => {
 const GitHub = () => {
     return (
         <PageContainer id="github">
-            <H2>Desenvolvedore? Colabore!</H2>
-            <P>Pagina em construção</P>
+            <H2 color="secundary">Desenvolvedore? Colabore!</H2>
+            <P color="secundary">Pagina em construção</P>
         </PageContainer>
     )
 }

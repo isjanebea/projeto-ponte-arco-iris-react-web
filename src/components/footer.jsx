@@ -5,8 +5,12 @@ import styled from 'styled-components';
 const FooterComponent= styled.div`
     display: flex;
     width: 100%;
-    height: 10vh;
+    height: 20vh;
     color: white;
+    background: red;
+    position: absolute;
+    z-index: 20;
+    background: ${props => props.theme.use=='dark' ? "black" : "white" };
 `
 
 

@@ -6,35 +6,23 @@ import { makeStyles } from '@material-ui/core/styles';
 import HostIdHooks from '../../hooks/host-id';
 import Error from '../../components/error';
 import Loading from '../../components/loading';
-const useStyles = makeStyles({
-    titulo: {
-        fontSize: '2rem',
-        fontHeight: 'bold',
-        lineHeight: '1.3',
-    },
-    subTitulo: {
-        fontSize: '1.3rem',
-        fontHeight: 'bold',
-        lineHeight: '1.3',
-    }
-});
-
-
-
-
+ import { P , H3, H2 } from '../../components/text';
 
 const Section = styled.section`
-    background: rgba(255,255,255,0.8);
+    background: rgba(${props => props.theme.color.bgOpacity},0.8);
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 10px;
-    box-shadow: 2px 2px 2px rgba(200,200,200,0.2);
     border: 1px solid rgba(0,0,0,0.2);
-    color: rgb(70,70,70)
 `
 const Strong = styled.strong`
     font-weight: bold;
 `
+
+const Container = styled.div`
+    padding: 10px;
+    background: ${props => props.theme.color.bg};
+` 
 {/* <iframe src="" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe> */ }
 const utils = {
     dateFormatoLong(data) {
@@ -43,7 +31,7 @@ const utils = {
 }
 const HostId = () => {
 
-    const style = useStyles()
+
     const { host, adress, error, loading } = HostIdHooks()
     if (error) {
         return <Error error={error} />
@@ -55,29 +43,29 @@ const HostId = () => {
 
     return (
         <>
-            <div style={{ background: "rgb(240,230,240)", padding: '10px' }}>
+            <Container>
                 <Section className="border-arco-iris animRight">
                     <div style={{ borderBottom: "1px rgba(0,0,0,0.2) solid", marginBottom: '20px' }}>
-                        <Typography className={"gradient " + style.titulo} variant="h5">{host.name}</Typography>
+                        <H2 className={"gradient"}>{host.name}</H2>
                     </div>
-                    <Typography variant="body2">
+                    <P>
                         <Strong>Descrição: </Strong>{host.description}
-                    </Typography>
+                    </P>
                     <section style={{ marginTop: '10px' }}>
-                        <Typography variant="body2"><Strong>Dominio de Atividade:</Strong> {host.activityDomain}</Typography>
-                        <Typography variant="body2"><Strong>Tipo:</Strong> {host.type}</Typography>
-                        <Typography variant="body2"><Strong>Fundação: </Strong> {utils.dateFormatoLong(host.foundedAt)}</Typography>
+                        <P><Strong>Dominio de Atividade:</Strong> {host.activityDomain}</P>
+                        <P><Strong>Tipo:</Strong> {host.type}</P>
+                        <P><Strong>Fundação: </Strong> {utils.dateFormatoLong(host.foundedAt)}</P>
                     </section>
                 </Section>
                 <Section className="border-arco-iris animLeft">
                     <ul>
                         <li><div style={{ borderBottom: "1px rgba(0,0,0,0.2) solid", marginBottom: '20px' }}>
-                            <Typography className={"gradient " + style.subTitulo} variant="h6">Atividades e Projetos</Typography>
+                            <H2 className={"gradient"}>Atividades e Projetos</H2>
                         </div></li>
                         {host.activitiesAndProjects.map((acao, index) => (
                             <li key={index}>
-                                <Typography className={"gradient " + style.subTitulo} variant="h6">{acao.title}</Typography>
-                                <Typography variant="body2">{acao.description}</Typography>
+                                <H3 className={"gradient"}>{acao.title}</H3>
+                                <P>{acao.description}</P>
                             </li>
                         ))
                         }
@@ -94,7 +82,7 @@ const HostId = () => {
                         loading="lazy"
                     />
                 </Section>
-            </div >
+            </Container >
         </>
     )
 }

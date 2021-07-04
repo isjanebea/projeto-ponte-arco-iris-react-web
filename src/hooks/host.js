@@ -22,7 +22,11 @@ const Host = (props) => {
     const [hostList, setHostList] = useState([])
 
     const query = useQuery();
-    const { hostSeach } = useContext(Context)
+    const { hostSeach, setMenu, menu } = useContext(Context);
+
+    if (!menu) {
+        setMenu(true)
+    }
     const filter = queryUrl(query, "estado")
     let urlQueryString = "/localizacao?" + Object.keys(filter).map(key => key + "=" + filter[key].replace(/\s+/g, "%20"))
     useEffect(() => {

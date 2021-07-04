@@ -1,14 +1,19 @@
 
 const Dark = {
-    primary : "rgb(60,30,60)",
-    secundary: "white", 
+    primary : "rgb(150,150,150)",
+    secundary: "rgb(240,240,240)", 
     destaque : 'rgb(50,0,50)',
     title: 'white',
     icones : "rgb(40,40,40)",
     border : "255,255,255",
     bgImage: "rgba(0,0,0,.8)",
-    bgOpacity : "255,255,255",
-    borderSecundary : '0,0,0'
+    bgOpacity : "0,0,0",
+    borderSecundary : '0,0,0',
+    bgCard : "rgb(255,240,255)",
+    bgCard2 : "rgba(255,255,255,0.8)",
+    borderCard : "rgba(30,30,30,0.2)",
+    cardColor : "rgb(60,0,30)",
+    bg : "rgb(20,20,20)"
 }
 
 
@@ -22,8 +27,7 @@ const Dark = {
 // }
 const Light = {
     ...Dark,
-    primary: "red",
-    icones : "red"
+    primary : "red"
 }
 
 

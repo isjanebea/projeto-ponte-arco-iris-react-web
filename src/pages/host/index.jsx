@@ -9,67 +9,17 @@ import Loading from '../../components/loading';
 import FilterOptios from '../../components/filterSelect';
 import history from '../../routes/history'
 
+import {
+    ListGroup,
+    List,
+    ListItem,
+    ButtonBar,
+    CardHeader,
+    FilterComponent,
+    Card,
+    Container
+} from './index.style'
 
-const ListGroup = styled.ul`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-`
-
-const List = styled.div`
-    display: flex;
-    width: 100%;
-`
-const ListItem = styled.li`
-    padding: 10px
-`
-// colocar um icone de mapa e o endereco
-const Card = styled.section`
-    max-width : 350px;
-    border: 1px rgba(30,30,30,0.2) solid;
-    border-radius: 5px 5px 5px 5px;
-    padding: 10px;
-    color: rgb(60,0,30);
-    background: linear-gradient(to left, rgb(255,240,255), rgba(255,255,255,0.8));
-
-    @media(max-width: 425px) {
-        flex-direction: column;
-        position: relative;
-        width: 375px;
-      }
-
-`
-
-const ButtonBar = styled.div`
-      display: flex;
-      justify-content: space-between;
-      aligm-items: center;
-      @media(max-width: 415px) {
-            flex-direction: column-reverse;
-            .label-location {
-                margin-bottom: 10px;
-                justify-content: center;
-                
-            }
-      }
-`
-
-const CardHeader = styled.div`
-    padding : 10px;
-    border-bottom: 1px rgba(127,127,127,0.5) solid;
-`
-
-const FilterComponent = styled.div`
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    border: 1px rgba(0,0,0,0.1) solid;
-    padding: 10px;
-`
-const Container = styled.div`
-      background: linear-gradient(to bottom, rgba(255,255,255, 0.5), rgba(255,255,255,0));
-`
 const CardHost = ({ host, _id, uf, city }) => (
     <div>
         <Card className="descricao">
@@ -116,8 +66,8 @@ const Host = () => {
     return loading ? (
         <Loading />
     ) : (
-        <div style={{ background: "rgba(255, 255, 255, 0.3)" }}>
-            <div style={{ minHeight: '100vh', width: '100%' }}>
+        <Container>
+            <div style={{ minHeight: '100vh', }}>
                 <Filter host={hostList} />
                 <List>
                     <ListGroup>
@@ -131,7 +81,7 @@ const Host = () => {
                     </ListGroup>
                 </List>
             </div>
-        </div>
+        </Container>
     )
 
 }
