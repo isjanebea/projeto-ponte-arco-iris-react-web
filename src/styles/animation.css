@@ -60,10 +60,10 @@
 		background-color: rgba(255, 0, 0, 0.5);
 	}
 	10% {
-		background-color: rgb(80,80,80);
+		background-color: rgb(150,150,150);
 	}
 	99% {
-		background-color: rgb(80,80,80);
+		background-color: rgb(150,150,150);
 	}
 	100% {
 		background-color: rgb(255, 121, 121);
