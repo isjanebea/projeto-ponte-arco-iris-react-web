@@ -6,10 +6,11 @@ import server from '../services/server'
 const EstadosHooks = () => {
     const [ loading, setLoading ] = useState(true);
     const [estados, setEstados ] = useState([]);
+    const [city, setCity ] = useState([]);
     const [error, setError] = useState(false);
     useEffect(() => {
         setLoading(true)
-        server.get("/localizacao/estados")
+        server.get("/enderecos/estados")
         .then(response => {
             setEstados(response.data)
             setLoading(false)
@@ -20,10 +21,13 @@ const EstadosHooks = () => {
         })
     }, [])
 
+    const filterCity = state => {
+        setCity(estados[state])
+    }
     return {
         loading,
-        estados,
-        error
+        estados : Object.keys(estados),
+        error,
     }
 }
 
