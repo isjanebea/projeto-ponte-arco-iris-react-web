@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -23,44 +23,62 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-export default function ControlledOpenSelect(props) {
+
+const FormItem = props => {
     const classes = useStyles();
+    const [open, setOpen] = useState(false);
+    const handleClose = () => {
+        setOpen(false);
+    };
 
-    const { estados: estadoData, loading, error } = EstadosHooks(); 
-    const { handleClose, handleOpen, estado, handleChange, handleFilter, handleClear, open } = FilterHooks();
+    const handleOpen = () => {
+        setOpen(true);
+    };
 
+    return (
+        <FormControl className={classes.formControl}>
+            <InputLabel id={`${props.value}controlled-open-select-label`}>{props.item}</InputLabel>
+            <Select
+                labelId={`${props.value}controlled-open-select-label`}
+                id={`${props.value}controlled-open-select`}
+                open={open}
+                onClose={handleClose}
+                onOpen={handleOpen}
+                value={props.value}
+                onChange={props.handleChange}
+            >
+                {props.loading ? <MenuItem value={null} >carregando..</MenuItem> : props.options.sort((a, b) => a - b).map(option => (
+                    <MenuItem value={option} key={option} >{option}</MenuItem>
+                ))}
+            </Select>
+        </FormControl>
+    )
+}
+
+export default function ControlledOpenSelect(props) {
+
+    const { estados: estadoData, loading, error } = EstadosHooks();
+    const {estado, handleChange, handleFilter, handleClear} = FilterHooks();
+
+    
+    
     if (error) {
         return <Error error={error} />
     }
 
-   
-
-
     return (
         <div>
-            <FormControl className={classes.formControl}>
-                <InputLabel id="state-controlled-open-select-label">Estado</InputLabel>
-                <Select
-                    labelId="state-controlled-open-select-label"
-                    id="state-controlled-open-select"
-                    open={open}
-                    onClose={handleClose}
-                    onOpen={handleOpen}
-                    value={estado}
-                    onChange={handleChange}
-                >
-                    {loading ? <MenuItem value={null} >carregando..</MenuItem> : estadoData.sort((a, b) => a - b).map(estado => (
-                        <MenuItem value={estado} key={estado} >{estado}</MenuItem>
-                    ))}
-                </Select>
-            </FormControl>
+             <FormItem item="Estado" options={estadoData} value={estado} handleChange={handleChange} />
             {props.bar == false ? (
                 <>
+
                     <Button onClick={loading == false ? handleFilter : null}>Buscar</Button>
                 </>
             ) : (
 
                 <>
+                   
+                    <FormItem item="Cidade" options={estadoData} value={estado} handleChange={handleChange} />
                     <Button onClick={loading == false ? handleFilter : null}>Filtrar</Button><Button onClick={handleClear}>Limpar</Button>
                 </>
             )}
