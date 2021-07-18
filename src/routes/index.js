@@ -37,11 +37,11 @@ import About from '../pages/about';
 const Routes = () => (
     <Switch>
         <PublicRouter exact path="/" component={Home} />
-        <PublicRouter exact path="/login" component={Login} />
+        {/* <PublicRouter exact path="/login" component={Login} /> */}
         <PublicRouter exact path="/documentacao" component={Api} />
         <PublicRouter exact path="/cadastro" component={Cadastro} />
-        <PublicRouter exact path="/acolhida" component={Host} />
-        <PublicRouter exact path="/acolhida/:id" component={AcolhidaId} />
+        <PublicRouter exact path="/lares" component={Host} />
+        <PublicRouter exact path="/lares/:id" component={AcolhidaId} />
         <PublicRouter exact path="/acolhide" component={Acolhide} />
         <PublicRouter exact path="/sobre" component={About} />
         <PublicRouter path="*" component={NotFound} />
@@ -57,7 +57,6 @@ const Navigation = () => {
             <Router history={history}>
                 <Header />
                 <Routes />
-                <Footer />
             </Router>
             <GlobalStyle />
         </ThemeProvider>
