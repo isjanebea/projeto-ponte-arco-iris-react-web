@@ -26,7 +26,7 @@ const Host = (props) => {
 
 
     const filter = queryUrl(query, "estado")
-    let urlQueryString = "/localizacao?" + Object.keys(filter).map(key => key + "=" + filter[key].replace(/\s+/g, "%20"))
+    let urlQueryString = "/enderecos?" + Object.keys(filter).map(key => key + "=" + filter[key].replace(/\s+/g, "%20"))
     useEffect(() => {
         if (!menu) {
             setMenu(true)
