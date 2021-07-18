@@ -52,6 +52,7 @@ const RightMenu = () => {
         <AlignCenter>
             <Switches />
             <Button onClick={() => handleClick("/login")}><StyledAccountCircleIcon /></Button>
+            <NavButton onClick={() => handleClick("/cadastro")}>Cadastro</NavButton>
         </AlignCenter>
     )
 }
@@ -66,7 +67,7 @@ const NavBar = (props) => {
                     {/* LEFT */}
                     <Logo />
                     <NavButton onClick={() => handleClick("/")}>Home</NavButton>
-                    <NavButton onClick={() => handleClick("/acolhida")}>Lares</NavButton>
+                    <NavButton onClick={() => handleClick("/lares")}>Lares</NavButton>
                     <NavButton onClick={() => handleClick("/sobre")}>Sobre</NavButton>
                 </AlignCenter>
                 <RightMenu />
