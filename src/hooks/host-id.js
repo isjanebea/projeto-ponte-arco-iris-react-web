@@ -9,7 +9,7 @@ const HostPageIdHooks = () => {
     // usar o id do endereco
     useEffect(() => {
         setHostData({ loading: true, error: false })
-        server.get("/localizacao/" + id)
+        server.get("/enderecos/" + id)
             .then(response => response.data)
             .then(data => {
                 setHostData({ loading: false, host: data.host, adress: data })
