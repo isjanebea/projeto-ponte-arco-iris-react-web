@@ -21,6 +21,9 @@ const H2 = styled.h2`
     @media(max-width: 425px) {
         font-size: 1.2em;
     }
+    @media(max-width: 1440px) {
+        font-size: 1.5em;
+    }
 `
 const H1 = styled.h1`
     color : ${colorTitle};
