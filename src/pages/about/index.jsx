@@ -16,10 +16,10 @@ import {
 import { H2, P } from '../../components/text';
 
 import { AddCircle } from '../../components/iconMenu';
-
+import Footer from '../../components/footer';
 const ListItem = (props) => {
     const handleClick = (event) => {
-        
+
     }
     return (
         <li>
@@ -80,7 +80,7 @@ const GitHub = () => {
 const About = () => {
 
     const { setMenu, menu } = useContext(Context);
-    const [ visible, setVisible ] = useState(false)
+    const [visible, setVisible] = useState(false)
     useEffect(() => {
 
         if (menu == false) {
@@ -92,25 +92,28 @@ const About = () => {
         setVisible(visible ? false : true);
     }
     return (
-        <Container>
-            <SideMenu>
-                <a onClick={ handleClick }><AddCircle/></a>
-               <Menu open={visible} onClick={visible ? handleClick : () => null}> 
-                    <ListItem text="Sobre" to="#descricao" />
-                    <ListItem text="API DOCS" to="#api-docs" />
-                    <ListItem text="Contato" to="#contato" />
-                    <ListItem text="GitHub" to="#github" />
-                    <ListItem text="Termos de uso" to="#termos" />
-                </Menu>
-            </SideMenu>
-            <div className="pages">
-                <Sobre />
-                <ApiDocs />
-                <Contato />
-                <GitHub />
-                <TermosDeUso />
-            </div>
-        </Container>
+        <React.Fragment>
+            <Container>
+                <SideMenu>
+                    <a onClick={handleClick}><AddCircle /></a>
+                    <Menu open={visible} onClick={visible ? handleClick : () => null}>
+                        <ListItem text="Sobre" to="#descricao" />
+                        <ListItem text="API DOCS" to="#api-docs" />
+                        <ListItem text="Contato" to="#contato" />
+                        <ListItem text="GitHub" to="#github" />
+                        <ListItem text="Termos de uso" to="#termos" />
+                    </Menu>
+                </SideMenu>
+                <div className="pages">
+                    <Sobre />
+                    <ApiDocs />
+                    <Contato />
+                    <GitHub />
+                    <TermosDeUso />
+                </div>
+            </Container>
+            <Footer />
+        </React.Fragment>
     )
 }
 
