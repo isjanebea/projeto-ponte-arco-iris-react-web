@@ -1,8 +1,8 @@
 import { Typography } from '@material-ui/core';
-import { Center } from '../../components/page';
+
 
 const Page404 = () => (
-    <Center>
+    <div>
         <section>
             <Typography variant="h4"><strong>
                 404 | Pagina não encontrada
@@ -12,7 +12,7 @@ const Page404 = () => (
                 Caso o erro persista, por favor, contactar o admistrador.
         </Typography>
         </section>
-    </Center>
+    </div>
 )
 
 export default Page404
