@@ -7,7 +7,6 @@ import { Context } from '../context/index';
 import EstadosHooks from './estados';
 
 
-
 const FilterHooks = () => {
     const query = useQuery();
 
@@ -34,14 +33,14 @@ const FilterHooks = () => {
     const handleFilter = () => {
         let filter = { estado };
         if (filter == null || filter.estado=="") return null;
-        let urlseach = "/acolhida?" + Object.keys(filter).map(key => key + "=" + filter[key].replace(/\s+/g, "%20")).join('');
+        let urlseach = "/lares?" + Object.keys(filter).map(key => key + "=" + filter[key].replace(/\s+/g, "%20")).join('');
         setHostSeach(urlseach);
         history.push(urlseach)
     }
     const handleClear = () => {
         setHostSeach('');
         setEstado('');
-        history.push("/acolhida")
+        history.push("/lares")
     }
     const handleClose = () => {
         setOpen(false);
