@@ -19,7 +19,7 @@ export default function useAuth() {
 
     const handleLogin = async () => {
         try {
-            const { data: { token, user: { user, email } } } = await server.post("auth/")
+            const { data: { token, user: { user, email } } } = await server.post("admin/login")
             localStorage.setItem('token', JSON.stringify(token))
             server.defaults.headers.authorization = `Bearer ${token}`;
             setAuth(true)
