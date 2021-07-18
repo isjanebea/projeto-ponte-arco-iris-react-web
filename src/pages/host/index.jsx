@@ -37,7 +37,7 @@ const CardHost = ({ host, _id, uf, city }) => (
 
             </div>
             <ButtonBar>
-                    <Button variant="outlined" color="secondary" onClick={() => history.push('/acolhida/' + _id)}>Mais informações</Button>
+                    <Button variant="outlined" color="secondary" onClick={() => history.push('/lares/' + _id)}>Mais informações</Button>
                 <LabelLocation>
                     <LocationOnIcon style={{ fontSize: '15px' }} /><Typography variant="body1" style={{ fontSize: '15px' }}>{city} - {uf}</Typography>
                 </LabelLocation>

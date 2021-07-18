@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Typography } from '@material-ui/core';
 import Iframe from 'react-iframe'
 import styled, { createGlobalStyle } from 'styled-components';
-import { makeStyles } from '@material-ui/core/styles';
 import HostIdHooks from '../../hooks/host-id';
 import Error from '../../components/error';
 import Loading from '../../components/loading';
 import { P, H3, H2 } from '../../components/text';
 
 const Section = styled.section`
-    background: rgba(${props => props.theme.color.bgOpacity},0.8);
+    background: rgba(${props => props.theme.color.bgContrast},0.8);
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 10px;

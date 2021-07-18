@@ -5,7 +5,7 @@ const ListGroup = styled.ul`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 100%;
+    margin: 0 auto;
 `
 
 const List = styled.div`
@@ -55,8 +55,6 @@ const ButtonBar = styled.div`
 
 const Container = styled.div`
       background: ${props => props.color ? props.color : props.theme.color.bg};
-      align-items: center;
-      display: flex;
       
 `
 
